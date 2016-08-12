@@ -25,6 +25,12 @@ OTHER_FILES +=
 
 RESOURCES += \
     back.qrc
+
+macx{
+ICON＝icon.icns
+}
+
 win32{
 RC_FILE += icon.rc
 }
+
