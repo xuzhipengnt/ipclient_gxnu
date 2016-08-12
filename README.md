@@ -10,6 +10,33 @@
 
 这些协议只是学校的私有的协议，也就桂林这一带的高校才用，逆向了也没什么商业利益，纯粹兴趣和个人需要，所以就开源啦，就是辣么任性，哈哈哈～～
 
+说一下目录结构吧
+
+/binary/ipclient_cli_x64_linux........64位linux的命令行版本
+
+/binary/ipclient_cli_linux........32位linux的命令行版本（Linux用户推荐）
+
+/binary/ipclient_cli_x64_osx........64位osx的命令行版本
+
+/binary/ipclient_gui_osx.app........OS X下面有界面的出校控制器(OS X用户推荐，但是宽带有问题，建议配合/ipclient_python/macopen.py使用路由器，卖得起apple，路由器也应该买得起吧，哈哈哈)
+
+/binary/ipclient_gui_win32_7z.7z........Windows下面有界面的出校控制器（需解压后使用）
+
+/binary/ipclient_gui_win32_binary.exr........Windows下面有界面的出校控制器（直接使用,Windows用户推荐）
+
+/ipclient_python/macopen.py.......开放路由器拨号的Python工具，全平台通用，只要你会用就行，哈哈哈
+
+/ipclient_python/ipclient.py.......出校控制器的Python版本，全平台通用，只要你会用就行，哈哈哈
+
+/doc/原理文档.pdf.......学校出校控制器，宿舍宽带拨号的秘密都在里面啦
+
+/doc/桂林电子科大学生的逆向文档.........桂电学生做的，也是最原始的资料，师大改了一些参数
+
+/ipclient_c......c版本的出校控制器命令行版本的源码，在别人的基础上改了一下参数而已
+
+/ipclient_qt.......出校控制器界面的qt源码
+
+
 --------2016.8.11-----------
 
 1、先建一个库，整理一下，有空放一些架设vpn的细节，可以联系邮箱xzpmail@gmail.com（我不喜欢扣扣聊天）
@@ -28,10 +55,6 @@
 
 5、上传ipclient的linux命令行版本，
 
- /binary/ipclient_cli_x64_linux........64位linux的命令行版本
-
- /binary/ipclient_cli_linux........32位linux的命令行版本
-
- /binary/ipclient_cli_x64_osx........64位osx的命令行版本
-
 6、上传原理文档，在/doc/原理文档.pdf里面，这才是最关键的哈哈哈～～
+
+
