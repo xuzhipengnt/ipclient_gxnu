@@ -24,7 +24,7 @@
 
 /binary/ipclient_gui_win32_binary.exr........Windows下面有界面的出校控制器（直接使用,Windows用户推荐）
 
-/ipclient_python/macopen.py.......开放路由器拨号的Python工具，全平台通用，只要你会用就行，哈哈哈
+/ipclient_python/macopen.py.......路由器辅助拨号Python工具，全平台通用，只要你会用就行，哈哈哈
 
 /ipclient_python/ipclient.py.......出校控制器的Python版本，全平台通用，只要你会用就行，哈哈哈
 
@@ -36,6 +36,7 @@
 
 /ipclient_qt.......出校控制器界面的qt源码
 
+／macopen.......路由器辅助拨号工具源码
 
 --------2016.8.11-----------
 
@@ -53,8 +54,8 @@
 
 4、上传ipclient_qt的windows版本的二进制包
 
-5、上传ipclient的linux命令行版本，
+5、上传ipclient的linux命令行版本
 
 6、上传原理文档，在/doc/原理文档.pdf里面，这才是最关键的哈哈哈～～
 
-
+7、上传路由器宽带辅助拨号工具
