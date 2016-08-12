@@ -15,3 +15,23 @@
 1、先建一个库，整理一下，有空放一些架设vpn的细节，可以联系邮箱xzpmail@gmail.com（我不喜欢扣扣聊天）
 
 2、上传./ipclient_python/ipclient.py 校园网出校控制器Python实现，童鞋么可以在Linux,OS X,Windows下上网了，开源的用了更放心～～
+
+--------2016.8.12-------------
+
+1、上传ipclient的c版本源码(osx/linux通用,windows需要装Mingw，没试过)
+
+2、上传ipclient的c版本的osx的编译后二进制包
+
+3、上传ipclient_qt的源码
+
+4、上传ipclient_qt的windows版本的二进制包
+
+5、上传ipclient的linux命令行版本，
+
+ /binary/ipclient_cli_x64_linux........64位linux的命令行版本
+
+ /binary/ipclient_cli_linux........32位linux的命令行版本
+
+ /binary/ipclient_cli_x64_osx........64位osx的命令行版本
+
+6、上传原理文档，在/doc/原理文档.pdf里面，这才是最关键的哈哈哈～～
