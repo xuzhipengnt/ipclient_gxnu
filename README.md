@@ -10,7 +10,9 @@
 
 这些协议只是学校的私有的协议，也就桂林这一带的高校才用，逆向了也没什么商业利益，纯粹兴趣和个人需要，所以就开源啦，就是辣么任性，哈哈哈～～
 
-说一下目录结构吧
+说一些重要的东西吧。
+
+出校控制器命令行版本如下
 
 /binary/ipclient_cli_x64_linux........64位linux的命令行版本
 
@@ -18,15 +20,24 @@
 
 /binary/ipclient_cli_x64_osx........64位osx的命令行版本
 
-/binary/ipclient_gui_osx.app........OS X下面有界面的出校控制器(OS X用户推荐，但是宽带有问题，建议配合/ipclient_python/macopen.py使用路由器，卖得起apple，路由器也应该买得起吧，哈哈哈)
+出校控制器带界面版本如下
+
+/binary/ipclient_gui_osx.app........OS X下面有界面的出校控制器(OS X用户推荐，需下载macopen_gui_osx.zip路由器拨号工具来使用，卖得起apple，路由器也应该买得起吧，哈哈哈)
 
 /binary/ipclient_gui_win32_7z.7z........Windows下面有界面的出校控制器（需解压后使用）
 
-/binary/ipclient_gui_win32_binary.exr........Windows下面有界面的出校控制器（直接使用,Windows用户推荐）
+/binary/ipclient_gui_win32_binary.exe........Windows下面有界面的出校控制器（直接使用,Windows用户推荐）
 
-/ipclient_python/macopen.py.......路由器辅助拨号Python工具，全平台通用，只要你会用就行，哈哈哈
 
-/ipclient_python/ipclient.py.......出校控制器的Python版本，全平台通用，只要你会用就行，哈哈哈
+路由器辅助拨号工具如下，只需要输入路由器的Mac地址和运营商，路由器就可以正常上网
+
+/binary/macopen_gui_osx.zip.......For Mac
+
+/binary/macopen_gui_win32_73.7z........For Windows
+
+/binary/macopen_gui_win32_binary.exe.......For Windows 单独Exe
+
+文档和源码如下
 
 /doc/原理文档.pdf.......学校出校控制器，宿舍宽带拨号的秘密都在里面啦
 
@@ -44,7 +55,7 @@
 
 2、上传./ipclient_python/ipclient.py 校园网出校控制器Python实现，童鞋么可以在Linux,OS X,Windows下上网了，开源的用了更放心～～
 
---------2016.8.12-------------
+--------2016.8.12-----------
 
 1、上传ipclient的c版本源码(osx/linux通用,windows需要装Mingw，没试过)
 
@@ -59,3 +70,11 @@
 6、上传原理文档，在/doc/原理文档.pdf里面，这才是最关键的哈哈哈～～
 
 7、上传路由器宽带辅助拨号工具
+
+--------2016.8.13-----------
+
+1、修正路由器宽带辅助拨号工具Bug
+
+2、上传路由器宽带辅助拨号工具For windows
+
+3、上传os x pppoe协议栈的问题，详细分析为什么苹果电脑无法正常通过pppoe拨号上网，见/doc/苹果为什么在师大无法拨号.docx
