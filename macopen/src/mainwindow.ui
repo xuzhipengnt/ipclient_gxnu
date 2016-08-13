@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/icon.png</normaloff>:/icon.png</iconset>
+  </property>
   <property name="animated">
    <bool>false</bool>
   </property>
@@ -28,7 +32,8 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>22</pointsize>
+      <family>Agency FB</family>
+      <pointsize>12</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -109,7 +114,7 @@
       <rect>
        <x>20</x>
        <y>130</y>
-       <width>131</width>
+       <width>151</width>
        <height>21</height>
       </rect>
      </property>
@@ -209,6 +214,8 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
  <connections/>
 </ui>
