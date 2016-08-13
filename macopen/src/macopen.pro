@@ -18,3 +18,11 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
+ win32{
+RC_FILE += icon.rc
+}
+
+RESOURCES += \
+    icon.qrc
+
+
