@@ -198,6 +198,7 @@ void MainWindow::on_dial_clicked()
         }
         else if (loopmode==1)
         { //loop mode
+           ispCon(ispn,localip,macaddr);
           loopmac=macaddr;
           looptime=ui->circtime->value();
         //  disconnect(loopclock,SIGNAL(timeout()),this,SLOT(loopsend()));
