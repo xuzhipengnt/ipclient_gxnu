@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>252</width>
-    <height>307</height>
+    <width>245</width>
+    <height>310</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>PreDialTool</string>
   </property>
   <property name="windowIcon">
    <iconset resource="icon.qrc">
@@ -24,7 +24,7 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>60</x>
       <y>10</y>
       <width>201</width>
       <height>31</height>
@@ -57,7 +57,7 @@
     <widget class="QPushButton" name="dial">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>20</x>
        <y>160</y>
        <width>101</width>
        <height>41</height>
@@ -79,8 +79,11 @@
      <property name="text">
       <string>联通</string>
      </property>
-     <property name="checked">
+     <property name="checkable">
       <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QCheckBox" name="mobi">
@@ -162,7 +165,7 @@
      <property name="geometry">
       <rect>
        <x>150</x>
-       <y>70</y>
+       <y>60</y>
        <width>59</width>
        <height>16</height>
       </rect>
@@ -184,11 +187,24 @@
       <string>IP Address:</string>
      </property>
     </widget>
+    <widget class="QLabel" name="sflag">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>170</y>
+       <width>21</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>30</x>
       <y>40</y>
       <width>211</width>
       <height>16</height>
@@ -201,14 +217,27 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>30</x>
       <y>60</y>
-      <width>171</width>
+      <width>211</width>
       <height>17</height>
      </rect>
     </property>
     <property name="text">
      <string>Welcome!</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="icon">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>
