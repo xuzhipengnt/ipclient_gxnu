@@ -150,6 +150,7 @@ void MainWindow::on_unicom_clicked()
         ui->mobi->setChecked(0);
         ispn=1; // Set ispn
     }
+    if ((ui->unicom->isChecked()==0) && (ui->tele->isChecked()==0) && ((ui->mobi->isChecked()==0))) ispn=10;
 }
 
 void MainWindow::on_tele_clicked()
@@ -160,6 +161,7 @@ void MainWindow::on_tele_clicked()
         ui->mobi->setChecked(0);
         ispn=2;  // Set ispn
     }
+      if ((ui->unicom->isChecked()==0) && (ui->tele->isChecked()==0) && ((ui->mobi->isChecked()==0))) ispn=10;
 }
 
 void MainWindow::on_mobi_clicked()
@@ -170,6 +172,7 @@ void MainWindow::on_mobi_clicked()
         ui->unicom->setChecked(0);
         ispn=3;  // Set ispn
     }
+      if ((ui->unicom->isChecked()==0) && (ui->tele->isChecked()==0) && ((ui->mobi->isChecked()==0))) ispn=10;
 }
 
 
