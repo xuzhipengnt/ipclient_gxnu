@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>icon.png</file>
+        <file>gflag.png</file>
+        <file>yflag.png</file>
+        <file>router.png</file>
     </qresource>
 </RCC>
