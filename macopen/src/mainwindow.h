@@ -9,7 +9,7 @@
 #include <QTimer>
 #include <QTime>
 #include <QDebug>
-
+#include <QMessageBox>
 namespace Ui {
 class MainWindow;
 }
@@ -30,7 +30,9 @@ public:
     QHostAddress server; //Define server
     QTimer *timeout1;  //Define receive ip address timeout
     QTimer *timeout2;  //Define receive feedback timeout
+    QTimer *flagtime;  //Define flag timeout
      QTimer *loopclock;  //Define loop clock
+//    QMessageBox *warning;
      int ispCon(int ispNum,QString myIP,QString myMac);
     ~MainWindow();
 
@@ -43,15 +45,10 @@ private slots:
     void displaytimeout();
     void feedbacktimeout();
     void loopsend();
-    //void on_pushButton_4_clicked();
-
     void on_circ_clicked();
-
-
-    
-
-    
+    void showflag();
     void on_dial_clicked();
+
 
 private:
     Ui::MainWindow *ui;

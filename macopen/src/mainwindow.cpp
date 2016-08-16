@@ -6,7 +6,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ispn=1; //Init isp number  -1 Unicom -2 Telecom -3 Mobile
+    QPixmap iconpng(":/router.png");
+
+    ui->icon->setFixedSize(40,40);
+       ui->icon->setPixmap(iconpng);
+       ui->icon->setScaledContents(1);
+    ispn=10; //Init isp number  -1 Unicom -2 Telecom -3 Mobile -10 Null
     ui->circtime->setDisabled(1);  // Loop mode time disable
     ui->circtime->setMinimum(2);   // Set loop mode min time 2 miniutes
     ui->dial->setDisabled(1); //Disable dial button if can not get correct local ip address
@@ -14,13 +19,23 @@ MainWindow::MainWindow(QWidget *parent) :
     ispudp=new QUdpSocket(this);  //Define class QUdpSocket to get local ip address
     timeout1=new QTimer(this);
     timeout2=new QTimer(this);
+    flagtime=new QTimer(this);
     loopclock=new QTimer(this);
     loopmode=0;  //single mode
     server=QHostAddress("202.193.160.123"); //Define dial server
     localip="0.0.0.0";
    connect(timeout1,SIGNAL(timeout()),this,SLOT(displaytimeout())); //Receive ip address timeout
    connect(timeout2,SIGNAL(timeout()),this,SLOT(feedbacktimeout()));//Receive feedback packet timeout
+      connect(flagtime,SIGNAL(timeout()),this,SLOT(showflag()));//Receive feedback packet timeout
     Getlocalip();//Get local ip address
+
+    setFixedSize(250,310); // 禁止改变窗口大小。
+    QPixmap yflag(":/yflag.png");
+ QPixmap gflag(":/gflag.png");
+ ui->sflag->setFixedSize(25,25);
+    ui->sflag->setPixmap(gflag);
+    ui->sflag->setScaledContents(1);
+
 }
 
 MainWindow::~MainWindow()
@@ -30,6 +45,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::Getlocalip()
 {
+     ipsocket->close();  //Before send packet we should close socket
      ipsocket->connectToHost(server,5301);
      unsigned char data[]={0x82, 0x23, 0x05, 0x0c, 0x08, 0x09, /* Oo.#.... */
              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, /* ........ */
@@ -183,13 +199,20 @@ void MainWindow::on_dial_clicked()
      disconnect(ipsocket,SIGNAL(readyRead()),this,SLOT(Recvip()));
       disconnect(ispudp,SIGNAL(readyRead()),this,SLOT(Recvfeedback()));
         loopclock->stop();
-  disconnect(loopclock,SIGNAL(timeout()),this,SLOT(loopsend()));
+     disconnect(loopclock,SIGNAL(timeout()),this,SLOT(loopsend()));
   QRegExp regexpmac("([0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2})");
   QString macaddr;
   int looptime=0;
   macaddr=ui->mactext->text(); //Get mac address
   macaddr=macaddr.toUpper(); //Transform to UPPER
-  bool macmatch=regexpmac.exactMatch(macaddr);
+  bool macmatch=regexpmac.exactMatch(macaddr); //Judge the mac address is correct
+  if (ispn==10)
+  {
+        ui->label_4->setText("Please select isp");
+        QMessageBox::critical(this,"错误",tr("请选择运营商"));
+        return ;
+  }
+
   if (macmatch) //Check MAC address
   {
         if (loopmode==0)
@@ -209,12 +232,14 @@ void MainWindow::on_dial_clicked()
    else //if mac address is incorrect
    {
        ui->label_4->setText("Invalid MAC address");
+        QMessageBox::critical(this,"错误",tr("请输入正确的MAC地址"));
    }
 }
 
 
 int MainWindow::ispCon(int ispNum,QString myIP,QString myMac)
 {
+    ispudp->close();
      ispudp->connectToHost(server,20015);
      qDebug()<<myIP;
     qDebug()<<myMac;
@@ -310,6 +335,11 @@ void MainWindow::Recvfeedback()
           qDebug()<<"Open succeed!";
           ui->label_4->setText("Open succeed!");
           timeout2->stop();
+          QPixmap yflag(":/yflag.png");
+          ui->sflag->setFixedSize(25,25);
+             ui->sflag->setPixmap(yflag);
+             ui->sflag->setScaledContents(1);
+             flagtime->start(300);
           ispudp->close();
      }
 }
@@ -318,3 +348,15 @@ void MainWindow::loopsend()
       ispCon(ispn,localip,loopmac);
       loopclock->start();
 }
+void MainWindow::showflag()
+{
+    QPixmap gflag(":/gflag.png");
+    ui->sflag->setFixedSize(25,25);
+       ui->sflag->setPixmap(gflag);
+       ui->sflag->setScaledContents(1);
+       flagtime->stop();
+}
+
+
+
+
