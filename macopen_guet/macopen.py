@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8 ##
 import socket,numpy
-server='172.16.1.1'  #GUET 172.16.1.1  GXNU 202.193.160.123
+server='202.193.160.123'  #GUET 172.16.1.1  GXNU 202.193.160.123
 addr=(server,20015)
 def send_handshake(mac,ip,isp):
  localInfo=bytearray([0x00,0x00,0x00,0x00,0x00,0x00,
