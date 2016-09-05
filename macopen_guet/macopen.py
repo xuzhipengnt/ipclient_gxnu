@@ -15,7 +15,7 @@ def send_handshake(mac,ip,isp):
  s1=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
  s1.connect(addr)
  ispKey=0x4e67c6a7
- localInfo[0]='1'
+ localInfo[0]=0x61
  nmac=len(mac)
  nInfo=len(localInfo)
  ipaddress=[0,0,0,0]
