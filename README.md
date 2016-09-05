@@ -88,3 +88,5 @@
 --------2016.9.5-----------
 
 1、增加桂电路由器拨号工具Python版本 /macopen_guet/macopen.py
+
+2、增加桂电路由器拨号工具Windows二进制版本 /macopen_guet/macopen_guet_win32.exe(7z) 
