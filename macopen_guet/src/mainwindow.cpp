@@ -245,7 +245,6 @@ int MainWindow::ispCon(int ispNum,QString myIP,QString myMac)
 {
     ispudp->close();
      ispudp->connectToHost(server,20015);
-     myIP="172.16.1.1"; // GUET---ip address is fixed 172.16.1.1
      qDebug()<<myIP;
     qDebug()<<myMac;
     int ispKey=0x4e67c6a7;
