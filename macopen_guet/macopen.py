@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8 ##
 import socket,numpy
-server='202.193.160.123'
+server='172.16.1.1'  #GUET 172.16.1.1  GXNU 202.193.160.123
 addr=(server,20015)
 def send_handshake(mac,ip,isp):
  localInfo=bytearray([0x00,0x00,0x00,0x00,0x00,0x00,
@@ -63,8 +63,8 @@ def get_local_ip(ifname):
 
 if __name__=="__main__":
     mac="40:61:86:87:9F:F1"
-    ip="172.16.1.1" ##in GXNU, ip is local machine's ip address but not router's ip address
-                     ## if you are in GUET,do not modify ip
+    ip="172.16.1.1" ##!!!!in GXNU, ip is local machine's ip address but not router's ip
+                    ##!!!!in GUET, do not modify ip
     isp=0x01
     ###isp  0x01(China Unicom)  0x02(China Telecom)  0x03(China Mobile) ###
     send_handshake(mac,ip,isp)
