@@ -1,0 +1,977 @@
+\documentclass[cs4size,a4paper,cap,fntef]{ctexart}
+\pagestyle{plain}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,bm} %AMS数学符号宏包
+\usepackage{graphicx} %图形的宏包
+\usepackage{geometry} %页面设置宏包
+\usepackage{enumerate} %列表环境设置宏包
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm} % 页边距设置
+\CTEXsetup[format={\zihao{-3}\heiti\centering }]{section}
+\CTEXsetup[format={\zihao{4}\heiti}]{subsection}
+\CTEXsetup[format={\zihao{4}\heiti}]{subsubsection}
+%\renewcommand{\contentsname}{\zihao{-3}{\centerline{目~~~~~录}}} %重新定义目录
+\usepackage{natbib}
+\usepackage{pdfpages}
+\setcitestyle{super,square,citesep={,}}%参考文献标识
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage[perpage,symbol*]{footmisc}
+\lstset{breaklines}%这条命令可以让LaTeX自动将长的代码行换行排版
+\lstset{extendedchars=false}%这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\me}{\mathrm{e}}
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\mj}{\mathrm{j}}
+\lstset{numbers=right}
+\usepackage{epstopdf}
+\usepackage{titlesec}
+\usepackage{times}
+\usepackage{titletoc}
+\usepackage{fancyhdr}
+\usepackage{stmaryrd}
+\usepackage{bm}
+%\usepackage{syntonly}
+%\syntax only
+%\usepackage{ccmap}
+\usepackage{caption}
+\DeclareCaptionFont{capFont}{\songti \zihao{5}} % 表格名及图名用 5 号宋体
+\DeclareCaptionLabelSeparator{twospace}{~~}
+\captionsetup{labelsep=twospace,font={capFont}}
+\usepackage{xcolor}
+\usepackage{multirow}
+%---------------生成书签---------------------
+\usepackage{wasysym}
+\usepackage{makeidx}
+\makeindex
+%----------------------------------------
+\begin{document}
+\newcommand{\xiaosi}{\fontsize{12pt}{18pt}\selectfont}
+\newcommand{\df}[2]{\displaystyle\frac{#1}{#2}}
+%\title{常用科技论文模板}
+%\maketitle
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\renewcommand{\thetable}{\arabic{section}-\arabic{table}}
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+\newcommand{\figwidth}{13.5cm}
+%---------------代码显示--------------
+%------------------------------------------------------
+\titlecontents{section}[0mm]
+{\vspace{.2\baselineskip}}
+{{\thecontentslabel} \quad \heiti}
+{}
+{\hspace{0.28cm}\titlerule*[5pt]{.}\contentspage}
+\titlecontents{subsection}[6mm]
+{\vspace{.2\baselineskip}}
+{\thecontentslabel\quad}
+{}
+{\hspace{0.28cm}\titlerule*[5pt]{.}\contentspage}
+\titlecontents{subsubsection}[12mm]
+{\vspace{.2\baselineskip}}
+{\thecontentslabel\quad}
+{}
+{\hspace{0.28cm}\titlerule*[5pt]{.}\contentspage}
+\lstset{frame=shadowbox,rulesepcolor=\color{red!20!green!20!blue!20},breaklines,keywordstyle=\color{blue}\bfseries,
+stringstyle=\ttfamily}
+%---------------------------------------------------------
+\makeatletter
+\makeatother
+\makeatletter
+\@addtoreset{subsubsection}{section}
+\@addtoreset{equation}{section}
+\@addtoreset{figure}{section}
+\makeatother
+\renewcommand{\floatpagefraction}{0.85}
+ \renewcommand{\headrulewidth}{0.72pt}
+%------------图片和文本间距--------
+%\setlength{\belowcaptionskip}{-1cm} %caption和下方文字的距离
+%\setlength{\belowcaptionskip}{-1cm} %caption和下方文字的距离
+%----------作业头封面-------------------------
+
+
+%----------------目录部分--------------------
+\pagestyle{fancy}
+\lhead{{\zihao{-5}\heiti{广西师大出校控制器/多运营商拨号系统原理分析及实现}}}
+\chead{}
+\rhead{{\zihao{-5}\heiti{xzpmail@gmail.com}}}
+\cfoot{\zihao{-5}\thepage}
+\newpage
+\pagenumbering{Roman}
+\renewcommand{\contentsname}{目~~~~录}
+\tableofcontents
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+%----------------目录结束-------------------
+%--------------------正文-----------------------------------
+\xiaosi
+%----------------正文开始-------------------
+%----------------环境演示，使用时请删除----------
+%\section{各种环境的演示}
+%\begin{figure}[htbp!]
+%% Requires \usepackage{graphicx}
+% \begin{center}
+% \includegraphics[width=0.8\textwidth]{./Fig/name}\\
+% \caption{图形的使用}
+%
+%\end{center}
+%\label{lagdia}
+%\end{figure}
+%对齐的使用
+%\begin{equation}\label{update}
+%\begin{aligned}
+%  a_{i+1}&=a_i-\alpha_1\frac{\partial{F}}{\partial{a_i}}\\
+%  b_{i+1}&=b_i-\alpha_2\frac{\partial{F}}{\partial{b_i}}\\
+%  c_{i+1}&=c_i-\alpha_3\frac{\partial{F}}{\partial{c_i}}\\
+%\end{aligned}
+%\end{equation}
+%方程组的使用
+%\begin{equation}\label{euler}
+%  \left\{
+%   \begin{aligned}
+%   &y_{n+1}=y_n+\frac{h}{6}(K_1+2K_2+2K_3+K_4)\\
+%   &K_1=f(x_n,y_n)\\
+%   &K_2=f\left(x_n+\frac{h}{2},y_n+\frac{h}{2}K_1\right)\\
+%   &K_3=f\left(x_n+\frac{h}{2},y_n+\frac{h}{2}K_2\right)\\
+%   &K_4=f(x_n+h,y_n+hK_3)
+%   \end{aligned}
+%  \right.
+%\end{equation}
+%代码的使用
+%\begin{lstlisting}[language=Lingo]
+%model:
+%sets:
+%point /1..11/:x,y;
+%endsets
+%data:
+%x=0,0.2,0.4,0.6,0.8,1,1.2,1.4,1.6,1.8,2;
+%y=2.246819,11.87494,-19.4487,-37.5716,-26.2028,
+%-50.4786,-48.2922,-45.1824,-59.2489,-55.3519,
+%-89.1589;
+%enddata
+%@free(a);
+%@free(b);
+%@free(c);
+%min=@sum(point(i):@pow((a+b*x(i)+c*x(i)*x(i))-y(i),2));
+%\end{lstlisting}
+%--------------------------------------------
+\section{设计目的}
+鉴于学校官方的出校控制器只有Windows版本，而Linux下只提供命令行版本，并且不支持运营商宽带拨号功能，而且没有支持OS X版本，所以在Macbook上上网成了一个问题。考虑到QT的跨平台特性，所以采用了QT来进行开发。
+\section{基础工具介绍}
+虽然有相关的文档，但是只能针对桂电适用，并不能在我校百分百适用，总体来说，中间的通信机制类似一个黑盒，仍然需要借助许多工具来对这个“黑盒”进行逆向。而这些工具则包括了开发的平台QT，抓包软件Wireshark用于捕捉官方出校控制器的数据包，OllyDebug是一个动态的反汇编软件，用于反向官方出校控制器相关算法。Python则是一个编码风格简易的语言，这里用于数据包加密过程相关参数的破解计算。
+\subsection{QT}
+Qt是一个跨平台应用程序和UI开发框架。使用Qt只需要一次性开发程序，无须重新编写源代码，可跨不同桌面和嵌入式操作系统部署这些应用程序。 经过多年发展，Qt不但拥有了完善的C++图形库，而且近年来的版本逐渐集成了数据库、OpenGL库、多媒体库、网络、脚本库、XML库、WebKit库等等，其核心库也加入了进程间通信、多线程等模块，极大的丰富了Qt开发大规模复杂跨平台应用程序的能力，真正意义上实现了其研发宗旨“Code Less; Create More; Deploy Anywhere.”。
+\subsection{WireShark}
+Wireshark是一个网络封包分析软件。网络封包分析软件的功能是抓取网络封包，并尽可能显示出最为详细的网络封包资料。Wireshark在Windows下使用WinPCAP作为接口，直接与网卡进行数据报文交换，在Linux/Unix下采用tcpdump 作为接口，直接与系统内核进行数据报文交换。
+\par
+数据包分析软件的功能类似于万用表来量测电流、电压、电阻的工作，但是只是将场合移植到网络上，并将电线替换成网络线。在过去，网络封包分析软件是非常昂贵的软件。但是WireShark 的出现改变了这一切。在GNU/GPL通用许可证的保障范围底下，使用者可以以免费的代价取得软件与其源代码，所以WireShark 是目前全世界最广泛的数据包分析软件之一。
+\par
+Wireshark既可以作为黑客的工具，也可以做为初学者学习网络的工具，而在这里，我们作为一种分析工具，用来对出校控制器这个软件特定的协议进行分析。图(\ref{wico})就是Wireshark 的图标。
+\begin{figure}[htbp!]
+% Requires \usepackage{graphicx}
+ \begin{center}
+ \includegraphics[width=0.5\textwidth]{./Fig/wireshark}\\
+ \caption{Wireshark图标} \label{wico}
+\end{center}
+\label{lagdia}
+\end{figure}
+\subsection{OllyDebug}
+OllyDbg是一个新的动态追踪工具，将IDA与SoftICE结合起来的思想，Ring 3级调试器，非常容易上手，己代替SoftICE成为当今最为流行的调试解密工具了。同时还支持插件扩展功能，是目前最强大的调试工具。界面如图(\ref{olly})所示。
+\begin{figure}[htbp!]
+% Requires \usepackage{graphicx}
+ \begin{center}
+ \includegraphics[width=0.6\textwidth]{./Fig/olly}\\
+ \caption{OllyDbg界面} \label{olly}
+\end{center}
+\label{lagdia}
+\end{figure}
+\subsection{Python}
+Python是一种面向对象、解释型计算机程序设计语言，由Guido van Rossum于1989年底发明，第一个公开发行版发行于1991年，Python 源代码同样遵循 GPL(GNU General Public License)协议 。Python语法简洁而清晰，具有丰富和强大的类库。它常被昵称为胶水语言，能够把用其他语言制作的各种模块（尤其是C/C++）很轻松地联结在一起。
+\par
+正因为Python跨平台、代码简洁的特性，所以Python在实现原型方面有着独特的优势，可以绕过所有底层的细节去进行功能验证。所以在这里采用Python进行特定数据细节分析，并且试着用Python实现了出校控制器的功能。
+\par
+Python的英文原意是蟒蛇，所以用蛇作为其语言的Logo。
+ \begin{center}
+ \includegraphics[width=0.2\textwidth]{./Fig/py}\\
+\end{center}
+\section{校园网部分协议分析与实现}
+\subsection{总体原理分析}
+在测试的过程中发现，Windows和Linux版本在数据包结构和端口方面存在一定的差异，但是服务器应该可以识别出来，所以对最终的实现并没有影响。这里数据包的抓包都是基于官方Linux版本下取得的。
+\par
+通过图(\ref{handshake1})可以看出，目标服务器地址为202.193.160.123(广西师范大学)，采用UDP包来进行通信，其中$\mathcal{N}o.5995,5996,6080,6081$这4个包为握手包，用于确认用户信息的正确性，大小为342 字节，除去包的头部信息之后，实际数据段为300字节。
+\begin{figure}[htbp!]
+ \begin{center}
+ \includegraphics[width=0.8\textwidth]{./Fig/allpack}
+ \caption{握手包}\label{handshake1}
+\end{center}
+\end{figure}
+\par
+而$\mathcal{N}o.14987$和$\mathcal{N}o.14988$为心跳包，包的实际数据为500字节，这个数据包的发送表明了客户端还存活，然后服务器返回该客户的费用和流量信息。在数据包的发送过程中，如果包大小不正确，服务器是不会回应的。
+\par
+根据桂电的相关文档，以及图(\ref{handshake2})可以知道$\mathcal{N}o.5995$ 为连接请求包，此时客户端向服务器5300端口发送一个包含用户名的连接请求，服务器返回$\mathcal{N}o.5996$包，这个包里包含着用于计算摘要的密钥Key\footnote{沿用桂电学生的说法，严格意义来讲，称做salt更合适，本质上就是加盐计算摘要，增加逆向的难度}，客户端将这个Key，用户名和密码利用MD5算法计算得到相应的摘要密文，并将这个密文发送给服务器，即$\mathcal{N}o.6080$ 包的数据(因为抓包时没有过滤，可以看到$\mathcal{N}o.5996$到$\mathcal{N}o.6080$存在几个包的间隙，也正是MD5计算过程导致的时延)，最终服务器返回$\mathcal{N}o.6081$包中高速客户端是否开放成功，从而完成一整套握手过程。
+\par
+在开放成功后，客户端每隔40秒和服务器交换信息，端口为5301。事实上，这个时间可以提高两分钟以减少客户端开销。$\mathcal{N}o.14987$包中则是对客户端握手过程中的密钥Key进行简单计算后返回给服务器的。如果包正确，则服务器返回$\mathcal{N}o.14988$数据包，里面带有当前ip的流量和余额信息。
+\begin{figure}[htbp!]
+ \begin{center}
+ \includegraphics[width=0.8\textwidth]{./Fig/handshake}
+ \caption{握手过程}\label{handshake2}
+\end{center}
+\end{figure}
+\subsection{握手过程分析}
+\subsubsection{0x1f数据包}
+表(\ref{0x1f})是请求数据包的数据，其中数据包的每个字段解释如下：
+\begin{table}[htbp!]
+\caption{0x1f数据包}\label{0x1f}
+\begin{tabular}{ccccccccccccccccc}
+ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F \\
+0x00 & \cellcolor[HTML]{34CDF9}{\color[HTML]{333333} 82} & \cellcolor[HTML]{34CDF9}{\color[HTML]{333333} 23} & \cellcolor[HTML]{FE0000}1f & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{FCFF2F}0a & \cellcolor[HTML]{FCFF2F}00 & \cellcolor[HTML]{FCFF2F}00 & \cellcolor[HTML]{FCFF2F}00 & \cellcolor[HTML]{34FF34}28 \\
+0x10 & \cellcolor[HTML]{34FF34}26 & \cellcolor[HTML]{34FF34}27 & \cellcolor[HTML]{34FF34}2a & \cellcolor[HTML]{34FF34}26 & \cellcolor[HTML]{34FF34}27 & \cellcolor[HTML]{34FF34}26 & \cellcolor[HTML]{34FF34}2f & \cellcolor[HTML]{34FF34}2d & \cellcolor[HTML]{34FF34}26 & \cellcolor[HTML]{F8FF00}{\color[HTML]{333333} 0b} & \cellcolor[HTML]{F8FF00}{\color[HTML]{333333} 00} & \cellcolor[HTML]{F8FF00}{\color[HTML]{333333} 00} & \cellcolor[HTML]{F8FF00}{\color[HTML]{333333} 00} & \cellcolor[HTML]{CBCEFB}21 & \cellcolor[HTML]{CBCEFB}40 & \cellcolor[HTML]{CBCEFB}23 \\
+0x20 & \cellcolor[HTML]{CBCEFB}24 & \cellcolor[HTML]{CBCEFB}25 & \cellcolor[HTML]{CBCEFB}25 & \cellcolor[HTML]{CBCEFB}5e & \cellcolor[HTML]{CBCEFB}26 & \cellcolor[HTML]{CBCEFB}2a & \cellcolor[HTML]{CBCEFB}28 & \cellcolor[HTML]{CBCEFB}29 & \cellcolor[HTML]{F8FF00}07 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{CBCEFB}71 & \cellcolor[HTML]{CBCEFB}77 & \cellcolor[HTML]{CBCEFB}65 & \cellcolor[HTML]{CBCEFB}72 \\
+0x30 & \cellcolor[HTML]{CBCEFB}74 & \cellcolor[HTML]{CBCEFB}79 & \cellcolor[HTML]{CBCEFB}75 & \cellcolor[HTML]{C0C0C0}39 & \cellcolor[HTML]{C0C0C0}30 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}01 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}06 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}41 \\
+0x40 & \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} 53} & \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} 44} & \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} 46} & \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} 47} & \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} 48} & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 \\
+0x50 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00
+\end{tabular}
+\end{table}
+\begin{description}
+\item[0x00～0x01字节]所有与控制器相关的通信包都是0x82,0x23这两个常数
+\item[0x02字节]数据包的标号，这里是0x1f表示客户端请求开放ip地址
+\item[0x03～0x0A字节]全部为0，固定格式
+\item[0x0B～0x0E字节]0x0B字节代表下一段数据长度，即用户名长度，用户名为学号2014010970，所以0x0B字节数值为10(0x0a)
+\item[0x0F～0x18字节]用户名每一个字节的ASCII码减去10(0x0a)填入其中，例如'2'的ASCII 码为0x32，变换后0x32-0x0a=0x28
+\item[0x19～0x1C字节]下一个数据段长度为11(0x0b)
+\item[0x1D～0x27字节]这一段的ASCII码为'\!\@\#\$\%\%\^\&\*()'是固定的，只是用来填充，并无实际意义
+\item[0x28～0x2B字节]下一个数据段长度为7(0x07)
+\item[0x2C～0x32字节]这一段的ASCII码为"qwerty",即键盘从左到右的顺序，估计只是用来进行填充，并无实际含义
+\item[0x33～0x44字节]这一段也只是字节的填充，其中0x3F～0x44的ASCII码为"ASDFGH",无实际意义，只需要的照搬即可
+\item[0x44～0x12B]全部为0
+\end{description}
+\subsubsection{0x20数据包}
+\label{gkey}
+表(\ref{0x20})是服务器对0x1f包的响应，包的标号为0x20，其中数据包的每个字段解释如下：
+\begin{table}[htbp!]
+\caption{0x20数据包}\label{0x20}
+\begin{tabular}{ccccccccccccccccc}
+ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F \\
+0x00 & \cellcolor[HTML]{34CDF9}82 & \cellcolor[HTML]{34CDF9}23 & \cellcolor[HTML]{FE0000}20 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{F8FF00}0a & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{34FF34}28 \\
+0x10 & \cellcolor[HTML]{34FF34}26 & \cellcolor[HTML]{34FF34}27 & \cellcolor[HTML]{34FF34}2a & \cellcolor[HTML]{34FF34}26 & \cellcolor[HTML]{34FF34}27 & \cellcolor[HTML]{34FF34}26 & \cellcolor[HTML]{34FF34}2f & \cellcolor[HTML]{34FF34}2d & \cellcolor[HTML]{34FF34}26 & \cellcolor[HTML]{FCFF2F}0b & \cellcolor[HTML]{FCFF2F}00 & \cellcolor[HTML]{FCFF2F}00 & \cellcolor[HTML]{FCFF2F}00 & \cellcolor[HTML]{CBCEFB}21 & \cellcolor[HTML]{CBCEFB}40 & \cellcolor[HTML]{CBCEFB}23 \\
+0x20 & \cellcolor[HTML]{CBCEFB}24 & \cellcolor[HTML]{CBCEFB}25 & \cellcolor[HTML]{CBCEFB}25 & \cellcolor[HTML]{CBCEFB}5e & \cellcolor[HTML]{CBCEFB}26 & \cellcolor[HTML]{CBCEFB}2a & \cellcolor[HTML]{CBCEFB}28 & \cellcolor[HTML]{CBCEFB}29 & \cellcolor[HTML]{F8FF00}07 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{CBCEFB}71 & \cellcolor[HTML]{CBCEFB}77 & \cellcolor[HTML]{CBCEFB}65 & \cellcolor[HTML]{CBCEFB}72 \\
+0x30 & \cellcolor[HTML]{CBCEFB}74 & \cellcolor[HTML]{CBCEFB}79 & \cellcolor[HTML]{CBCEFB}75 & \cellcolor[HTML]{38FFF8}5c & \cellcolor[HTML]{38FFF8}20 & \cellcolor[HTML]{EFEFEF}00 & \cellcolor[HTML]{EFEFEF}00 & \cellcolor[HTML]{EFEFEF}01 & \cellcolor[HTML]{EFEFEF}00 & \cellcolor[HTML]{EFEFEF}00 & \cellcolor[HTML]{EFEFEF}00 & \cellcolor[HTML]{EFEFEF}06 & \cellcolor[HTML]{EFEFEF}00 & \cellcolor[HTML]{EFEFEF}00 & \cellcolor[HTML]{EFEFEF}00 & \cellcolor[HTML]{EFEFEF}02 \\
+0x40 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}47 & \cellcolor[HTML]{C0C0C0}48 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 \\
+0x50 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00
+\end{tabular}
+\end{table}
+\begin{description}
+\item[0x00～0x01字节]所有与控制器相关的通信包都是0x82,0x23这两个常数
+\item[0x02字节]数据包的标号，这里是0x20表示服务器响应的请求
+\item[0x03～0x0A字节]全部为0，固定格式
+\item[0x0B～0x0E字节]0x0B字节代表下一段数据长度，即用户名长度，用户名为学号2014010970，所以0x0B字节数值为10(0x0a)
+\item[0x0F～0x18字节]用户名每一个字节的ASCII码减去10(0x0a)填入其中，从0x1f包中原样返回
+\item[0x19～0x1C字节]下一个数据段长度为11(0x0b)
+\item[0x1D～0x27字节]这一段的ASCII码为"\!\@\#\$\%\%\^\&\*()"是固定的，只是用来填充，并无实际意义，从0x1f包中原样返回
+\item[0x28～0x2B字节]下一个数据段长度为7(0x07)
+\item[0x2C～0x32字节]这一段的ASCII码为"qwerty",即键盘从左到右的顺序，估计只是用来进行填充，并无实际含义，从0x1f包中原样返回
+\item[0x33～0x34字节]需要注意的是，这里是0x33～0x34字节里就是用于计算的密码摘要的密钥Key，用于计算相应的摘要，摘要的计算见第\ref{encode}节。接下来客户端将带有用户名和密码的摘要返回给服务器进行认证。
+\item[0x35～0x12B字节]全部为0
+\end{description}
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\subsubsection{0x21数据包}
+\label{sendkey}
+表(\ref{0x21})是服务器对0x1f包的响应，包的标号为0x20，其中数据包的每个字段解释如下：
+\begin{table}[htbp!]
+\caption{0x21数据包}\label{0x21}
+\begin{tabular}{ccccccccccccccccc}
+ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F \\
+0x00 & \cellcolor[HTML]{34CDF9}82 & \cellcolor[HTML]{34CDF9}23 & \cellcolor[HTML]{FE0000}21 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{FFFE65}0e & \cellcolor[HTML]{FFFE65}00 & \cellcolor[HTML]{FFFE65}00 & \cellcolor[HTML]{FFFE65}00 & \cellcolor[HTML]{34FF34}39 \\
+0x10 & \cellcolor[HTML]{34FF34}67 & \cellcolor[HTML]{34FF34}64 & \cellcolor[HTML]{34FF34}74 & \cellcolor[HTML]{34FF34}34 & \cellcolor[HTML]{34FF34}33 & \cellcolor[HTML]{34FF34}37 & \cellcolor[HTML]{34FF34}34 & \cellcolor[HTML]{34FF34}35 & \cellcolor[HTML]{34FF34}77 & \cellcolor[HTML]{34FF34}72 & \cellcolor[HTML]{34FF34}77 & \cellcolor[HTML]{34FF34}71 & \cellcolor[HTML]{34FF34}72 & \cellcolor[HTML]{FCFF2F}1e & \cellcolor[HTML]{FCFF2F}00 & \cellcolor[HTML]{FCFF2F}00 \\
+0x20 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{34FF34}41 & \cellcolor[HTML]{34FF34}36 & \cellcolor[HTML]{34FF34}43 & \cellcolor[HTML]{34FF34}38 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}43 & \cellcolor[HTML]{34FF34}30 & \cellcolor[HTML]{34FF34}42 & \cellcolor[HTML]{34FF34}42 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}39 & \cellcolor[HTML]{34FF34}37 & \cellcolor[HTML]{34FF34}43 & \cellcolor[HTML]{34FF34}42 & \cellcolor[HTML]{34FF34}41 \\
+0x30 & \cellcolor[HTML]{34FF34}35 & \cellcolor[HTML]{34FF34}33 & \cellcolor[HTML]{34FF34}45 & \cellcolor[HTML]{34FF34}44 & \cellcolor[HTML]{34FF34}43 & \cellcolor[HTML]{34FF34}43 & \cellcolor[HTML]{34FF34}42 & \cellcolor[HTML]{34FF34}44 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}32 & \cellcolor[HTML]{34FF34}32 & \cellcolor[HTML]{34FF34}44 & \cellcolor[HTML]{34FF34}38 & \cellcolor[HTML]{34FF34}35 & \cellcolor[HTML]{34FF34}41 & \cellcolor[HTML]{F8FF00}11 \\
+0x40 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}3a & \cellcolor[HTML]{34FF34}32 & \cellcolor[HTML]{34FF34}32 & \cellcolor[HTML]{34FF34}3a & \cellcolor[HTML]{34FF34}33 & \cellcolor[HTML]{34FF34}33 & \cellcolor[HTML]{34FF34}3a & \cellcolor[HTML]{34FF34}34 & \cellcolor[HTML]{34FF34}34 & \cellcolor[HTML]{34FF34}3a & \cellcolor[HTML]{34FF34}35 \\
+0x50 & \cellcolor[HTML]{34FF34}35 & \cellcolor[HTML]{34FF34}3a & \cellcolor[HTML]{34FF34}36 & \cellcolor[HTML]{34FF34}36 & \cellcolor[HTML]{FFCE93}2d & \cellcolor[HTML]{FFCE93}1f & \cellcolor[HTML]{FFCE93}d6 & \cellcolor[HTML]{FFCE93}03 & \cellcolor[HTML]{FFCE93}cc & \cellcolor[HTML]{FFCE93}f2 & \cellcolor[HTML]{FFCE93}24 & \cellcolor[HTML]{FFCE93}00 & \cellcolor[HTML]{F8FF00}0a & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 \\
+0x60 & \cellcolor[HTML]{34FF34}71 & \cellcolor[HTML]{34FF34}77 & \cellcolor[HTML]{34FF34}65 & \cellcolor[HTML]{34FF34}72 & \cellcolor[HTML]{34FF34}74 & \cellcolor[HTML]{34FF34}79 & \cellcolor[HTML]{34FF34}75 & \cellcolor[HTML]{34FF34}69 & \cellcolor[HTML]{34FF34}6f & \cellcolor[HTML]{34FF34}70 & 00 & 00 & 00 & 00 & 00 & 00 \\
+0x70 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00
+\end{tabular}
+\end{table}
+\begin{description}
+\item[0x00～0x01字节]所有与控制器相关的通信包都是0x82,0x23这两个常数
+\item[0x02字节]数据包的标号，这里是0x21表示客户端向服务器发出带用户名和密码的摘要
+\item[0x03～0x0A字节]全部为0，固定格式
+\item[0x0B～0x0E字节]0x0B处字节代表下一段数据长度，下一段数据段长度为14(0x0e)
+\item[0x0F～0x1C字节]字符串'9gdt43745wrwqr'，仍然是一段填充
+\item[0x1D～0x20字节]下一个数据段长度为30(0x1e)
+\item[0x21～0x3E字节]字符串'A6C81C0BB197CBA53EDCCBD122D85A'，为用户名和密码通过计算之后得到的摘要(算法见第\ref{encode}节)为了保证用户名和密码不以明文出现在网络上\footnote{事实上，这一套体系是存在问题的，即用户名进行明文传输的情况下，一旦知道了加密算法，就可以暴力破解出密码，见\ref{pojie}}，所以通过取Hash之后进行传输。
+\item[0x3F～0x42字节]下一段数据长度为17(0x11)
+\item[0x43～0x53字节]字符串'11:22:33:44:55:66'，估计设计时考虑到加入MAC地址所保留的字段，但是为简化编程难度，直接以11:22:33:44:55:66 替代
+\item[0x54～0x5B字节]不清楚含义，填充随机数都没有问题
+\item[0x5C～0x5F字节]下一段数据长度10(0x0a)
+\item[0x60～0x6A字节]字符串'qwertyuiop'，键盘最上面一排字母顺序，用于填充
+\item[0x6B～0x12B字节]全为0
+\end{description}
+\subsubsection{0x22数据包}
+表(\ref{0x22})是0x22数据包，代表服务器的认证结果，其中数据包的每个字段解释如下
+\begin{table}[h]
+\caption{0x22数据包}\label{0x22}
+\begin{tabular}{ccccccccccccccccc}
+     & 0                          & 1                          & 2                          & 3                          & 4                          & 5                          & 6                          & 7                          & 8                          & 9                          & A                          & B                          & C                          & D                          & E                          & F                          \\
+0x00 & \cellcolor[HTML]{34CDF9}82 & \cellcolor[HTML]{34CDF9}23 & \cellcolor[HTML]{FE0000}22 & \cellcolor[HTML]{34FF34}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{F8FF00}0e & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{34FF34}39 \\
+0x10 & \cellcolor[HTML]{34FF34}67 & \cellcolor[HTML]{34FF34}64 & \cellcolor[HTML]{34FF34}74 & \cellcolor[HTML]{34FF34}34 & \cellcolor[HTML]{34FF34}33 & \cellcolor[HTML]{34FF34}37 & \cellcolor[HTML]{34FF34}34 & \cellcolor[HTML]{34FF34}35 & \cellcolor[HTML]{34FF34}77 & \cellcolor[HTML]{34FF34}72 & \cellcolor[HTML]{34FF34}77 & \cellcolor[HTML]{34FF34}71 & \cellcolor[HTML]{34FF34}72 & \cellcolor[HTML]{F8FF00}1e & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 \\
+0x20 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{34FF34}41 & \cellcolor[HTML]{34FF34}36 & \cellcolor[HTML]{34FF34}43 & \cellcolor[HTML]{34FF34}38 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}43 & \cellcolor[HTML]{34FF34}30 & \cellcolor[HTML]{34FF34}42 & \cellcolor[HTML]{34FF34}42 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}39 & \cellcolor[HTML]{34FF34}37 & \cellcolor[HTML]{34FF34}43 & \cellcolor[HTML]{34FF34}42 & \cellcolor[HTML]{34FF34}41 \\
+0x30 & \cellcolor[HTML]{34FF34}35 & \cellcolor[HTML]{34FF34}33 & \cellcolor[HTML]{34FF34}45 & \cellcolor[HTML]{34FF34}44 & \cellcolor[HTML]{34FF34}43 & \cellcolor[HTML]{34FF34}43 & \cellcolor[HTML]{34FF34}42 & \cellcolor[HTML]{34FF34}44 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}32 & \cellcolor[HTML]{34FF34}32 & \cellcolor[HTML]{34FF34}44 & \cellcolor[HTML]{34FF34}38 & \cellcolor[HTML]{34FF34}35 & \cellcolor[HTML]{34FF34}41 & \cellcolor[HTML]{F8FF00}11 \\
+0x40 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}3a & \cellcolor[HTML]{34FF34}32 & \cellcolor[HTML]{34FF34}32 & \cellcolor[HTML]{34FF34}3a & \cellcolor[HTML]{34FF34}33 & \cellcolor[HTML]{34FF34}33 & \cellcolor[HTML]{34FF34}3a & \cellcolor[HTML]{34FF34}34 & \cellcolor[HTML]{34FF34}34 & \cellcolor[HTML]{34FF34}3a & \cellcolor[HTML]{34FF34}35 \\
+0x50 & \cellcolor[HTML]{34FF34}35 & \cellcolor[HTML]{34FF34}3a & \cellcolor[HTML]{34FF34}36 & \cellcolor[HTML]{34FF34}36 & \cellcolor[HTML]{FFCE93}2d & \cellcolor[HTML]{FFCE93}1f & \cellcolor[HTML]{FFCE93}d6 & \cellcolor[HTML]{FFCE93}3  & \cellcolor[HTML]{FFCE93}cc & \cellcolor[HTML]{FFCE93}f2 & \cellcolor[HTML]{FFCE93}24 & \cellcolor[HTML]{FFCE93}00 & \cellcolor[HTML]{FFCE93}0a & \cellcolor[HTML]{FFCE93}00 & \cellcolor[HTML]{FFCE93}00 & \cellcolor[HTML]{FFCE93}00 \\
+0x60 & \cellcolor[HTML]{FFCE93}0c & \cellcolor[HTML]{FFCE93}00 & \cellcolor[HTML]{FFCE93}00 & \cellcolor[HTML]{FFCE93}00 & \cellcolor[HTML]{FFCE93}bf & \cellcolor[HTML]{FFCE93}aa & \cellcolor[HTML]{FFCE93}b7 & \cellcolor[HTML]{FFCE93}c5 & \cellcolor[HTML]{FFCE93}49 & \cellcolor[HTML]{FFCE93}50 & \cellcolor[HTML]{FFCE93}b3 & \cellcolor[HTML]{FFCE93}c9 & \cellcolor[HTML]{FFCE93}b9 & \cellcolor[HTML]{FFCE93}a6 & \cellcolor[HTML]{FFCE93}23 & \cellcolor[HTML]{FFCE93}30 \\
+0x70 & 00                         & 00                         & 00                         & 00                         & 00                         & 00                         & 00                         & 00                         & 00                         & 00                         & 00                         & 00                         & 00                         & 00                         & 00                         & 00
+\end{tabular}
+\end{table}
+\begin{description}
+\item[0x00～0x01字节]所有与控制器相关的通信包都是0x82,0x23这两个常数
+\item[0x02字节]数据包的标号，这里是0x22表示客户端的认证结果，通过试验可以知道0x00 代表开放成功，0x14代表余额不足，0x63代表用户名或密码错误，0x20代表账号在别的机器上登录。
+\item[0x03字节]如果为0代表开放成果，如果为其它数值表明认证失败
+\item[0x0B～0x0E字节]0x0B处字节代表下一段数据长度，下一段数据段长度为14(0x0e)
+\item[0x0F～0x1C字节]字符串'9gdt43745wrwqr'，服务器原样返回
+\item[0x1D～0x20字节]下一个数据段长度为30(0x1e)
+\item[0x21～0x3E字节]字符串'A6C81C0BB197CBA53EDCCBD122D85A'，为用户名和密码通过计算之后得到的摘要，同理为服务器原样返回
+\item[0x3F～0x42字节]下一段数据长度为17(0x11)
+\item[0x43～0x53字节]字符串'11:22:33:44:55:66'，服务器原样返回
+\item[0x54～0x5B字节]不清楚含义，填充随机数都没有问题，也是原样返回
+\item[0x5C～0x5F字节]原样返回0x0a
+\item[0x60～0x6F字节]据说返回的是一段字符串，代表IP开放成功，可能是Unicode码，但是0x02字节中已经包含了认证结果，理解不理解已经不影响判定结果了。
+\item[0x70～0x12B字节]全为0
+\end{description}
+\subsection{握手过程中的加密分析}
+\label{encode}
+需要说明的是，加密的计算过程在没有参考文献的情况下，需要通过反汇编来分析计算过程，而这里因为有桂电学生的相关文献进行参考，所以可以忽略这一步，但是对于某些参数仍眼需要通过数据包重新计算和确认。而学校运营商的宽带(第\ref{dormcable}节)，摘要的计算没有相关资料，只能通过反汇编进行跟踪。
+\par
+下面说明密文摘要的计算过程，账号:2014010970，密码:042690
+\begin{description}
+\item[Step1~~取得Key:]Key为2字节数据，用unsigned short存储，来自0x20 数据包，见第\ref{gkey}节，原始数据为5c~20，由于采用小端法，这里的
+\begin{center}
+Key\footnote{0x0d10这个参数可以根据已知数据算出，见\ref{ckey}，反汇编结果也能证明这个参数，见\ref{decomp}第7行}=0x205C(8284$_{10}$) - 0x0d10~(3344$_{10}$)=0x134c~(4940$_{10}$)
+\end{center}
+\item[Step2~~第一轮MD5加密:]将Key的十进制(这里为4940)转换成字符串，与密码合并，计算MD5 HASH\footnote{MD5加密原理可以参考任何一本密码学教程}
+\begin{center}
+'4940'+'042690'='4940042690'\\
+MD5('4940042690')=65e1daf13ad53e5b60b027be93d71663
+\end{center}
+\item[Step3~~第二轮MD5加密:]将第一轮MD5的前5个字节全部变成大写，并与用户名合并，计算MD5 HASH
+\begin{center}
+'65E1D'+'2014010970'='65E1D2014010970'\\
+MD5('65E1D2014010970')=a6c81c0bb197cba53edccbd122d85ad2
+\end{center}
+\item[Step4~~发送数据包:]对第二轮MD5加密的结果取前30个字节，全部变成大写，即
+\begin{center}
+A6C81C0BB197CBA53EDCCBD122D85A
+\end{center}取ASCII码，填入0x20号数据包(见第\ref{sendkey}节)0x21～0x3E字节处，并发送数据包
+\end{description}
+\subsection{握手出校认证的代码实现}
+\subsubsection{UDP数据类}
+\label{udpclass}
+{\zihao{-5}
+\begin{lstlisting}[language=C++]
+   usocket=new QUdpSocket(this);
+    ispUdp=new QUdpSocket(this);
+    server=QHostAddress("202.193.160.123");
+    usocket->connectToHost(server,5300);
+    myIP=usocket->localAddress().toString();
+    timeoutf=new QTimer(this);
+    livepacket=new QUdpSocket(this);
+    livepacket->connectToHost(server,5301);
+ \end{lstlisting}}
+ QT中采用QUdpSocket来实现UDP协议，采用connectToHost来连接到主机，而事实上，由于UDP协议是并不是面向连接的协议，所以connectToHost只是用于确认服务器的ip地址和端口，并不能像TCP/IP协议那样返回主机的生存状态。
+ \par
+ 在该程序中实例usocket用于校园网的握手过程中的数据包的发送和接收，实例livepacket用于心跳包的发送和接收，ispUdp用于宿舍宽带部分的发送和接收。
+\subsubsection{0x1f数据包的发送}
+{\zihao{-5}
+\begin{lstlisting}[language=C++]
+void MainWindow::login(char *username)
+{
+    //char ipAddress[]="202.193.160.123";
+    unsigned char tail[]={0x0b,0x00,0x00,0x00,0x21,
+                 0x40,0x23,0x24,0x25,0x25,
+                 0x5e,0x26,0x2a,0x28,0x29,
+                 0x07,0x00,0x00,0x00,0x71,
+                 0x77,0x65,0x72,0x74,0x79,
+                 0x75,0x39,0x30,0x00,0x00,
+                 0x01,0x00,0x00,0x00,0x06,
+                 0x00,0x00,0x00,0x41,0x53,
+                 0x44,0x46,0x47,0x48};
+    unsigned char request[300]={0};
+    /***Construct Packet Header***/
+    request[0]=0x82;request[1]=0x23;request[2]=0x1f;
+    for (int i=3;i<15;i++) request[i]=0x00;
+    request[11]=name.size();  //get the length of string
+    int charlen=name.size();
+    for (int i=0;i<strlen(username);i++) request[15+i]=username[i]-10;
+    for (int j=0;j<44;j++) request[15+charlen+j]=tail[j];
+   QByteArray data;
+   for (int i=0;i<300;i++) data.append(request[i]);
+   connect(usocket,SIGNAL(readyRead()),this,SLOT(keyreceive()));
+   connect(timeoutf,SIGNAL(timeout()),this,SLOT(displaytimeout()));
+   usocket->write(data);
+   timeoutf->start(2000);
+  //keyreceive();
+}
+\end{lstlisting}}
+根据第\ref{0x1f}节的分析，可以发现0x19位置往后的格式都是固定的，所以第4行到第12行首先将这组数据给定义出来，在构建包的时候直接补上即可。由于数据包的长度为300，所以在第13行中采用unsigned char数组来初始化数据，且全部为0。第15行则直接定义了头部0x82,0x23,0x1f这三个固定格式的数据。第17行用于获得用户名的长度，填入0x0b处。第19行则将用户名的ASCII减去10，填充到数据包中。第20行则直接将固定格式的尾部数据填充入数据包。由于QT的UDP类发送的数据类型是QByteArray，所以21-22则是将unsigned char类型转换成QByteArray类型。23行是做好接受准备，准备接收服务器返回的数据包。24行则是超时计时器开始工作，如果收不到服务器返回的数据包，则返回超时。25行则是通过write方法将数据发送出去。至此完成了请求的第一步过程。
+\subsubsection{0x20数据包的接收}
+{\zihao{-5}
+\begin{lstlisting}[language=C++]
+void MainWindow::keyreceive()
+{ char key[300]={0};
+  int calckey=0;
+  unsigned short staus=0xff;
+    usocket->read(key,300);
+    int flag=0;
+    for (int i=0;i<300-3;i++)
+     {
+        if (((unsigned char)key[i]==0x82) &&((unsigned char)key[i+1]==0x23) && ((unsigned char)key[i+2]==0x20))
+         {
+            //cout<<"key:"<<endl;
+            //cout<<hex<<(unsigned short)(unsigned char)key[i+51]<<endl;
+            //cout<<hex<<(unsigned short)(unsigned char)key[i+52]<<endl;
+            calckey=(unsigned short)(unsigned char)key[i+51+(name.size()-10)]+((unsigned short)(unsigned char)key[i+52+(name.size()-10)]<<8);
+          //  livekey=(unsigned short)(unsigned char)key[i+52+(name.size()-10)]+((unsigned short)(unsigned char)key[i+51+(name.size()-10)]<<8);
+            calckey=calckey-3344;
+            livekey=calckey+1500;
+            livekey=((livekey>>8) & 0x00ff)+((livekey<<8) & 0xff00);
+            cout<<hex<<livekey<<endl;
+            flag=1;
+            buildLive();
+            timeoutf->stop();
+            break;
+          }
+        ......
+      }
+      ......
+}
+\end{lstlisting}}
+数据包的接收采用统一槽函数，见第\ref{udpclass}中的第23行，在接收到数据后，对数据包进行分析，找到数据包的的特殊标志，再进行进一步的处理。
+\par
+以下是0x20数据包的处理代码，其中第9行是通过0x82,0x23,0x20三个标志位来判断是否为0x20 数据包，第14，16行用于取出计算摘要的一组随机数。第17，18行则计算心跳包的key，22行则生成心跳包。第20行则是改变标记变量，因为只有收到0x20数据包才回复数据，而其它数据包则不回复数据，所以才改变flag变量。
+
+\subsubsection{0x21数据包的发送}
+{\zihao{-5}
+\begin{lstlisting}[language=C++]
+    if (flag==1)  //Receive key packet and send password
+    {
+        QString calc=QString::number(calckey);
+        calc.append(password);
+        qDebug()<<calc;
+        QByteArray md51;
+        QString  md52;
+        QByteArray  md53;
+        QString  md54;
+        md51=QCryptographicHash::hash(calc.toLatin1(), QCryptographicHash::Md5 );
+        md52=md51.toHex();
+        md52=md52.toUpper();
+        md52.truncate(5);
+        md52=md52.append(name);
+      // qDebug()<<tr(md52.toLatin1());
+        md53=QCryptographicHash::hash(md52.toLatin1(), QCryptographicHash::Md5 );
+        md54=md53.toHex();
+        md54=md54.toUpper();
+        md54.truncate(30);
+        char keysend[300]={0};
+        char *mdhash;
+        mdhash=md54.toLatin1().data();
+        char temple[]={0x82,0x23,0x21,0x00,0x00,0x00,
+                       0x00,0x00,0x00,0x00,0x00,0x0e,0x00,0x00,
+                       0x00,0x39,0x67,0x64,0x74,0x34,0x33,0x37,
+                       0x34,0x35,0x77,0x72,0x77,0x71,0x72,0x1e,
+                       0x00,0x00,0x00,0xFF,0x74,0x34,0x33,0x37,
+                       0x35,0x42,0x38,0x32,0x35,0x37,0x44,0x44,
+                       0x31,0x35,0x30,0x45,0xFF,0x44,0x37,0x36,
+                       0x44,0x31,0x35,0x46,0x33,0x35,0x46,0x30,
+                       0x44,0x11,0x00,0x00,0x00,0x31,0x31,0x3a,
+                       0x32,0x32,0x3a,0x33,0x33,0x3a,0x34,0x34,
+                       0x3a,0x35,0x35,0x3a,0x36,0x36,0x2d,0x1f,
+                       0xd6,0x03,0xcc,0xf2,0x24,0x00,0x0a,0x00,
+                       0x00,0x00,0x71,0x77,0x65,0x72,0x74,0x79,
+                       0x75,0x69,0x6f,0x70};
+       // qDebug()<<md54.toLatin1();
+       for (int i=0;i<106;i++) keysend[i]=temple[i];
+       for (int i=0;i<30;i++) keysend[i+33]=mdhash[i];
+       QByteArray keydata;
+       for (int i=0;i<300;i++) keydata.append(keysend[i]);
+        usocket->write(keydata);
+    }
+    \end{lstlisting}}
+代码的第10行是第一轮HASH,第12行是全部转换成大写，第13行是截断，取前5个字符，14行则是与用户名进行合并，16行是进行最后一轮HASH，19行是取前30个字符。第42行则是发送数据包。
+\subsubsection{0x22数据包的接收}
+{\zihao{-5}
+\begin{lstlisting}[language=C++]
+ if (((unsigned char)key[i]==0x82) &&((unsigned char)key[i+1]==0x23) && ((unsigned char)key[i+2]==0x22))
+         {
+            //cout<<"key:"<<endl;
+            //cout<<hex<<(unsigned short)(unsigned char)key[i+51]<<endl;
+            //cout<<hex<<(unsigned short)(unsigned char)key[i+52]<<endl;
+            cout<<"receive result"<<endl;
+            flag=2;
+            staus=(unsigned short)(unsigned char)key[i+3];
+            cout<<hex<<"0x"<<staus<<endl;
+            if (staus==0x00)
+                  {
+                   ui->label_4->setText(tr("连接成功"));
+                   disconnect(usocket,SIGNAL(readyRead()),this,SLOT(keyreceive()));
+                   connect(timer,SIGNAL(timeout()),this,SLOT(live()));
+                //   timer->start(1000);
+                 timer->start(120000);
+                   disconnect(timeoutf,SIGNAL(timeout()),this,SLOT(displaytimeout()));
+                   timeoutf->stop();
+                  }
+            else if (staus==0x63)
+            {
+                cout<<diss<<endl;
+                if (diss==1)
+                   {
+                    ui->label_4->setText(tr("断开成功"));
+                    diss=0;
+                    }
+                else
+                    ui->label_4->setText(tr("错误的用户名或密码"));
+
+                timer->stop();
+                disconnect(timeoutf,SIGNAL(timeout()),this,SLOT(displaytimeout()));
+                timeoutf->stop();
+            }
+            else if (staus==0x20)
+            {
+                ui->label_4->setText(tr("账号已经被使用"));
+                 timer->stop();
+                 disconnect(timeoutf,SIGNAL(timeout()),this,SLOT(displaytimeout()));
+                 timeoutf->stop();
+            }
+            else if (staus==0x14)
+            {
+                ui->label_4->setText(tr("余额不足"));
+                 timer->stop();
+                 disconnect(timeoutf,SIGNAL(timeout()),this,SLOT(displaytimeout()));
+                 timeoutf->stop();
+            }
+            break;
+          }
+\end{lstlisting}}
+0x22数据包则是返回认证结果，第1行用于判断数据包是否是0x82,0x23,0x22类型，第8行返回认证结果存入staus变量当中，如果为0x00，则表明连接成功，接下来首先断开连接，在13行中用disconnect函数兰实现，然后启动定时器，定时执行live()槽函数发送心跳包(心跳包的实现见第\ref{heartp}节)，在第14行中实现。第16行则是确定心跳发送间隔为120秒，即两分钟。第17 行用于停止超时计时器。
+\par
+第20行到第48行是识别各种认证失败的消息。例如0x20代表账号被使用，0x14代表余额不足，但是断开连接是通过发送一组错误的用户名和密码来实现断开连接的，因此需要对断开连接过程中的密码错误和输入过程中的密码错误进行区分，因此引入diss变量来实现，如果diss为1，则意味着是断开连接过程中导致的认证失败，因此显示“断开成功”，而diss为0，意味着是真正的用户名和密码错误，则显示“错误的用户名和密码”。
+\subsection{心跳包分析与实现}
+\label{heartp}
+心跳包的设计是为了确认客户端是否存活，在客户端非正常退出的情况下，可以自动断开，避免造成更大的损失。而心跳包的结构如表(\ref{ch})所示，其中心跳包的长度为500字节。
+\begin{table}[h]
+\caption{客户端发送的心跳包}\label{ch}
+\begin{tabular}{ccccccccccccccccc}
+ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F \\
+0x00 & \cellcolor[HTML]{34CDF9}82 & \cellcolor[HTML]{34CDF9}23 & \cellcolor[HTML]{FE0000}1e & \cellcolor[HTML]{34FF34}28 & \cellcolor[HTML]{34FF34}19 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{FFCE93}e4 & \cellcolor[HTML]{FFCE93}3e & \cellcolor[HTML]{FFCE93}86 & \cellcolor[HTML]{FFCE93}02 & \cellcolor[HTML]{FFCE93}00 \\
+0x10 & \cellcolor[HTML]{FFCE93}00 & \cellcolor[HTML]{FFCE93}00 & \cellcolor[HTML]{FFCE93}00 & \cellcolor[HTML]{FFCE93}5c & \cellcolor[HTML]{FFCE93}8f & \cellcolor[HTML]{FFCE93}c2 & \cellcolor[HTML]{FFCE93}f5 & \cellcolor[HTML]{FFCE93}f0 & \cellcolor[HTML]{FFCE93}a9 & \cellcolor[HTML]{FFCE93}df & \cellcolor[HTML]{FFCE93}40 & \cellcolor[HTML]{F8FF00}0a & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{34FF34}32 \\
+0x20 & \cellcolor[HTML]{34FF34}30 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}34 & \cellcolor[HTML]{34FF34}30 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}30 & \cellcolor[HTML]{34FF34}39 & \cellcolor[HTML]{34FF34}37 & \cellcolor[HTML]{34FF34}30 & \cellcolor[HTML]{F8FF00}09 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{34FF34}53 & \cellcolor[HTML]{34FF34}70 & \cellcolor[HTML]{34FF34}69 \\
+0x30 & \cellcolor[HTML]{34FF34}64 & \cellcolor[HTML]{34FF34}65 & \cellcolor[HTML]{34FF34}72 & \cellcolor[HTML]{34FF34}6d & \cellcolor[HTML]{34FF34}61 & \cellcolor[HTML]{34FF34}6e & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00
+\end{tabular}
+\end{table}
+\begin{description}
+\item[0x00～0x01字节]所有与控制器相关的通信包都是0x82,0x23这两个常数
+\item[0x02字节]心跳包的标号为固定常数0x1e
+\item[0x03～0x04字节]心跳包的密钥，是原始的key-3344+1500获得
+\item[0x05～0x0A字节]全为0
+\item[0x0B～0x1A字节]固定字符串，不明白含义
+\item[0x1B～0x1E字节]用户名字符串长度为10(0x0a)
+\item[0x1F～0x28字节]用户名的ASCII码
+\item[0x29～0x2C字节]下一段数据长度为9(0x11)
+\item[0x2D～0x35字节]字符串'Spiderman'。
+\item[0x70～0x1F3字节]全为0
+\end{description}
+\begin{table}[h]
+\caption{服务器返回的数据包}\label{feedb}
+\begin{tabular}{ccccccccccccccccc}
+ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F \\
+0x00 & \cellcolor[HTML]{34CDF9}82 & \cellcolor[HTML]{34CDF9}23 & \cellcolor[HTML]{FE0000}1f & \cellcolor[HTML]{FFCCC9}28 & \cellcolor[HTML]{FFCCC9}19 & \cellcolor[HTML]{FFCCC9}00 & \cellcolor[HTML]{FFCCC9}00 & \cellcolor[HTML]{FFCCC9}00 & \cellcolor[HTML]{FFCCC9}00 & \cellcolor[HTML]{FFCCC9}00 & \cellcolor[HTML]{FFCCC9}00 & \cellcolor[HTML]{FE996B}00 & \cellcolor[HTML]{FE996B}00 & \cellcolor[HTML]{FE996B}00 & \cellcolor[HTML]{FE996B}00 & \cellcolor[HTML]{FE996B}00 \\
+0x10 & \cellcolor[HTML]{FE996B}00 & \cellcolor[HTML]{FE996B}00 & \cellcolor[HTML]{FE996B}00 & \cellcolor[HTML]{34FF34}d9 & \cellcolor[HTML]{34FF34}78 & \cellcolor[HTML]{34FF34}e9 & \cellcolor[HTML]{34FF34}3c & \cellcolor[HTML]{34FF34}f7 & \cellcolor[HTML]{34FF34}d0 & \cellcolor[HTML]{34FF34}23 & \cellcolor[HTML]{34FF34}40 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 \\
+0x20 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{F8FF00}01 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{34FF34}20 \\
+0x30 & \cellcolor[HTML]{F8FF00}01 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{F8FF00}00 & \cellcolor[HTML]{34FF34}20 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00 & 00
+\end{tabular}
+\end{table}
+\begin{description}
+\item[0x00～0x01字节]所有与控制器相关的通信包都是0x82,0x23这两个常数
+\item[0x02字节]返回标号为固定常数0x1f
+\item[0x03～0x04字节]心跳包的密钥，
+\item[0x05～0x0A字节]全为0
+\item[0x0B～0x12字节]返回流量，double型，遵循IEEE754标准
+\item[0x13～0x1A字节]返回余额，double型，遵循IEEE754标准
+\item[0x1B～0x34字节]固定格式
+\item[0x35～0x1F3字节]全为0
+\end{description}
+\subsection{心跳包的实现}
+{\zihao{-5}
+\begin{lstlisting}[language=C++]
+void MainWindow::live()
+{
+connect(livepacket,SIGNAL(readyRead()),this,SLOT(showinfo()));
+livepacket->write(livedata);
+qDebug()<<"数据长度:";
+qDebug()<<livedata.size();
+}
+void MainWindow::buildLive()
+{
+    cout<<"live"<<endl;
+    unsigned char liveframe[500]={0};
+    unsigned char mid[]={0xe4,0x3e,0x86,0x02,
+                         0x00,0x00,0x00,0x00,
+                         0x5c,0x8f,0xc2,0xf5,
+                         0xf0,0xa9,0xdf,0x40};
+    liveframe[0]=0x82;liveframe[1]=0x23;liveframe[2]=0x1e;
+    cout<<"live key: 0x"<<hex<<livekey<<endl;
+    liveframe[3]=(unsigned char)((livekey & 0xff00)>>8);
+    liveframe[4]=(unsigned char)livekey;
+    for (int i=0;i<16;i++) liveframe[i+11]=mid[i];
+    int pos=0;
+    for (int i=0;i<name.size();i++)
+    {
+        liveframe[31+i]=name.toLatin1().data()[i];
+        pos=31+i;
+    }
+    unsigned char spider[]={0x09,0x00,0x00,0x00,
+                            0x53,0x70,0x69,0x64,
+                            0x65,0x72,0x6d,0x61,
+                            0x6e};
+    for (int i=0;i<13;i++) liveframe[pos+i+1]=spider[i];
+    livedata.clear();
+     for (int i=0;i<500;i++) livedata.append(liveframe[i]);
+}
+\end{lstlisting}}
+心跳包的实现包括两个部分，一个是数据包的建立，另一个是数据包的发送，发送是用live()函数来实现的，相对比较简单，最核心的部分则是第4行，发送数据。而第3行则是准备接收服务器返回的流量和费用信息。
+\par
+数据包的建立是使用的buildlive()函数，其中16行是填充头部数据，第18，19行是填充key，因为key是一个两字节的数据，而数据包是4字节的unsigned char 类型为基本单位，所以需要使用移位进行填充。22-26行是填充用户名，第31行和第20行是填充固定格式的数据。第33行则是将数据填充到Public变量livedata 里面去。
+
+\subsection{费用信息的解析}
+{\zihao{-5}
+\begin{lstlisting}[language=C++]
+void MainWindow::showinfo()
+{
+    char money2[500]={0};
+    livepacket->read(money2,500);
+    unsigned char money[500]={0};
+    unsigned char *p=money;
+    typedef union tagOct
+    {
+      double dData;
+      int nData[2];
+    }Oct;
+     Oct monnum;
+     for (int i=0;i<500;i++)
+     {
+           if (money2[i]!=0xff) //to filter 0xff
+         {
+             (*p)=(unsigned char)money2[i];
+               p++;
+         }
+     }
+   // for (int i=0;i<500;i++) cout<<hex<<(unsigned short)money[i];
+        for (int i=0;i<500;i++)
+        {
+           if  (((unsigned char)money[i]==0x82) &&((unsigned char)money[i+1]==0x23) && ((unsigned char)money[i+2]==0x1f))
+          {
+              qDebug()<<"receive";
+             for (int j=0;j<4;j++)
+             {
+              monnum.nData[0]=monnum.nData[0]|(money[i+19+j]<<(j*8));
+
+             }
+             for (int j=0;j<4;j++)
+             {
+                monnum.nData[1]=monnum.nData[1]|(money[i+23+j]<<(j*8));
+             }
+             QString moneyString=QString::number(monnum.dData);
+             int pn=moneyString.indexOf(".");
+             moneyString.truncate(pn+3);
+             ui->label_4->setText(tr("剩余金额:")+moneyString+tr(" 元"));
+             disconnect(timeoutf,SIGNAL(timeout()),this,SLOT(displaytimeout()));
+             disconnect(livepacket,SIGNAL(readyRead()),this,SLOT(showinfo()));
+              timeoutf->stop();
+              break;
+          }
+         }
+}
+\end{lstlisting}}
+由于c++不能对double类型的数据进行位操作，而数据包里传过来的数据类型都是unsigned char 型的，所以需要采用共用体来实现对数据的解析。
+\par
+第4行用于接收服务器反馈回来的数据，存入money变量中，第7～12行则是定义了一个tagOct结构体，一个dData的double变量与两个元素的int数组共用同一块内存区域，正好为32位类型。代码的第13～19行则是剔除数据中干扰，因为在测试的过程中发现，接收到的数据会出现不明原因的0xff干扰，所以受限需要将0xff从数据中删除。24行用于找到数据包头部的准确位置。27～35 行是通过移位操作将每一个字节填充到tagOct这个共用体当中去。最后36行则将double型转换成QString类型，并通过第37，38行的带包保留2位小数，最后执行第39行输出到界面。
+\section{宿舍宽带部分分析与实现}
+\label{dormcable}
+\subsection{原理分析}
+学校的出校控制器也可以支持宿舍的宽带的功能，宿舍宽带的是采用pppoe协议来进行拨号的，而pppoe协议是通过向局域网广播的方式来确定服务器的，但是因为存在3家运营商，所以服务器会发生冲突。因此在拨号之前，出校控制器向服务器发出请求，确定运营商，然后校园网计费服务器修改出口路由的ACL表，针对某mac地址开放某一特定运营商的拨号服务器，然后调用Windows自带的拨号软件来进行拨号。而一般的Windows, Linux, Mac都自带pppoe拨号器，所以我们只需要能够仿照已知的数据包的格式发出正确的开放请求包就可以了，接下来用户可以自己进行拨号。
+\par
+图(\ref{isp})则体现这一过程，表(\ref{ispp})则是请求数据包的结构。
+\begin{description}
+\item[0x00～0x1D字节]用户名，0x00～0x09为用户名的ASCII码，其余用0填充，事实上后面的pppoe拨号过程中的用户名与这里完全无关，所以这里用户名可以随便填写
+\item[0x1E～0x21字节]客户端的ip地址，这里ip地址为172.19.95.179，所以相应的十六进制为0xac,0x13,0x5f,0xb3。
+\item[0x22～0x32字节]MAC地址的ASCII码，这里MAC地址为00:22:FA:94:B5:0E，其中0x3a代表‘:'
+\item[0x33～0x37字节]固定格式，其中0x36字节代表运营商的编号，其中联通为0x01，电信为0x02，移动为0x03，0x36字节代表的信息非常重要，因为不同的运营商拨号服务器是不一样的
+\item[0x38～0x3B字节]这四个字节类似于校验码，通过一定的规则计算出来，计算不正确的情况下，服务器不会响应这个数据包并开放服务器。这个校验码的计算是通过反汇编得出来的，见第\ref{ispde} 节。
+\end{description}
+\begin{figure}[htbp!]
+ \begin{center}
+ \includegraphics[width=0.8\textwidth]{./Fig/isp}
+ \caption{宽带握手过程}\label{isp}
+\end{center}
+\end{figure}
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[h]
+\caption{宿舍宽带的的请求数据包}\label{ispp}
+\begin{tabular}{ccccccccccccccccc}
+ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F \\
+0x00 & \cellcolor[HTML]{34FF34}32 & \cellcolor[HTML]{34FF34}30 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}35 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}31 & \cellcolor[HTML]{34FF34}30 & \cellcolor[HTML]{34FF34}39 & \cellcolor[HTML]{34FF34}36 & \cellcolor[HTML]{34FF34}30 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 \\
+0x10 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{C0C0C0}00 & \cellcolor[HTML]{34FF34}ac & \cellcolor[HTML]{34FF34}13 \\
+0x20 & \cellcolor[HTML]{34FF34}5f & \cellcolor[HTML]{34FF34}b3 & \cellcolor[HTML]{F8FF00}30 & \cellcolor[HTML]{F8FF00}30 & \cellcolor[HTML]{F8FF00}3a & \cellcolor[HTML]{F8FF00}32 & \cellcolor[HTML]{F8FF00}32 & \cellcolor[HTML]{F8FF00}3a & \cellcolor[HTML]{F8FF00}46 & \cellcolor[HTML]{F8FF00}41 & \cellcolor[HTML]{F8FF00}3a & \cellcolor[HTML]{F8FF00}39 & \cellcolor[HTML]{F8FF00}34 & \cellcolor[HTML]{F8FF00}3a & \cellcolor[HTML]{F8FF00}42 & \cellcolor[HTML]{F8FF00}35 \\
+0x30 & \cellcolor[HTML]{F8FF00}3a & \cellcolor[HTML]{F8FF00}30 & \cellcolor[HTML]{F8FF00}45 & 00 & 00 & 00 & \cellcolor[HTML]{FE0000}01 & 00 & \cellcolor[HTML]{38FFF8}8a & \cellcolor[HTML]{38FFF8}e4 & \cellcolor[HTML]{38FFF8}e0 & \cellcolor[HTML]{38FFF8}76 &  &  &  &
+\end{tabular}
+\end{table}
+\subsection{校验码的计算}
+\label{ispde}
+校验码的计算是通过OllyDbg动态反汇编结合WireShark抓包得出来的，并结合内存中相应数据的改变，设置相应的断点反向出来的，过程不再赘述。最终定位到校验码的计算算法位于0x00487479处，见图(\ref{olly})，最终这一部分过程汇编代码见下，其中32行堆栈弹出，33行返回原过程，该子过程结束。该算法的资料极少，并且在代码的第6行第0x48746D处存在0x4E67C6A7这个常数，Google到是某一种特定的Hash算法的变异版本。
+\begin{figure}[htbp!]
+% Requires \usepackage{graphicx}
+ \begin{center}
+ \includegraphics[width=0.8\textwidth]{./Fig/decode}\\
+ \caption{OllyDbg定位结果}\label{olly}
+\end{center}
+\label{lagdia}
+\end{figure}
+{\zihao{-5}
+\begin{lstlisting}[language={[x86masm]Assembler}]
+0048746B MOV EAX,ESP
+0048746D MOV ECX,4E67C6A7
+00487472 INC EDX
+00487473 DEC EDX
+00487474 TEST EDX,EDX
+00487476 JL SHORT IPClient.004874A5
+00487478 INC EDX
+00487479 MOV ESI,ECX
+0048747B SHL ESI,5
+0048747E TEST ECX,ECX
+00487480 JLE SHORT IPClient.00487489
+00487482 MOV EBX,ECX
+00487484 SHR EBX,2
+00487487 JMP SHORT IPClient.00487494
+00487489 MOV EBX,ECX
+0048748B SHR EBX,2
+0048748E OR EBX,C0000000
+00487494 MOVZX EDI,[BYTE DS:EAX]
+00487497 MOV [DWORD SS:EBP-4],EDI
+0048749A ADD ESI,[DWORD SS:EBP-4]
+0048749D ADD EBX,ESI
+0048749F XOR ECX,EBX
+004874A1 INC EAX
+004874A2 DEC EDX
+004874A3 JNZ SHORT IPClient.00487479
+004874A5 MOV EAX,ECX
+004874A7 AND EAX,7FFFFFFF
+004874AC MOV EDI,[DWORD SS:EBP-10]
+004874AF MOV ESI,[DWORD SS:EBP-C]
+004874B2 MOV EBX,[DWORD SS:EBP-8]
+004874B5 MOV ESP,EBP
+004874B7 POP EBP
+004874B8 RETN
+\end{lstlisting}}
+QT中的代码实现如下，其中最核心的校验码的计算部分则直接翻译汇编代码来完成，因此在代码的第7-10行定义了ECX,ESI,EBX,EAX代表四个寄存器，其中第4行用于获得本机的MAC地址。11-18 行则预先定义了数据的0x00～0x37字节，23-26 行则将MAC地址的ASCII码填充到数据中去，39-42 行则将IP地址填充到数据当中。
+
+{\zihao{-5}
+\begin{lstlisting}[language=C++]
+int MainWindow::ispCon(int ispNum)
+{
+    CafesClient a;
+    myMac=a.get_localmachine_mac(myIP);
+    qDebug()<<myMac;
+    int ispKey=0x4e67c6a7;
+        int ECX;
+        int ESI;
+        int EBX;
+        int EAX;
+        unsigned char localInfo[]={0x00,0x00,0x00,0x00,0x00,0x00,
+                                  0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                                  0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                                  0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                                  0xac,0x10,0x40,0x12,0x30,0x30,0x3a,0x31,
+                                  0x46,0x3a,0x31,0x36,0x3a,0x32,0x32,0x3a,
+                                  0x42,0x38,0x3a,0x45,0x43,0x00,0x00,0x00,
+                                  0x02,0x00};
+        int nInfo=sizeof(localInfo);
+        int nMac=myMac.size();
+        localInfo[nInfo-2]=(unsigned char)ispNum;
+        qDebug()<<myIP;
+        for (int i=0;i<nMac;i++)
+        {
+            localInfo[i+34]=(unsigned char)myMac[i].toLatin1();
+        }
+        QStringList ipList = myIP.split(".");
+
+        if (ipList.size()!=4)
+        {
+            return -1;
+        }
+        int ip[4]={0};
+        for (int i=0;i<4;i++)
+        {
+            ip[i]=ipList.at(i).toInt();
+            qDebug()<<ip[i];
+        }
+        for (int i=0;i<4;i++)
+        {
+            localInfo[i+30]=(unsigned char)ip[i];
+        }
+        /****************Calculating Key************/
+        ECX=ispKey;
+        for (int i=0;i<nInfo;i++)
+        {
+             ESI=ECX;
+             ESI=ESI<<5;
+            if (ECX>0)
+             {
+                 EBX=ECX;
+                 EBX=EBX>>2;
+             }
+             else
+             {
+                 EBX=ECX;
+                 EBX=EBX>>2;
+                 EBX=EBX|(0xC0000000);
+             }
+             ESI=ESI+localInfo[i];
+             EBX=EBX+ESI;
+             ECX=ECX^EBX;
+        }
+        ECX=ECX&0x7FFFFFFF;
+        QByteArray ispData;
+        for (int i=0;i<nInfo;i++) ispData.append(localInfo[i]);
+        for (int i=0;i<4;i++)
+        {
+            unsigned char keypart;
+            keypart=(unsigned char)(ECX>>(i*8))&0x000000FF;
+            ispData.append(keypart);
+        }
+       ispUdp->write(ispData);
+       return 1;
+}
+\end{lstlisting}}
+\par
+44-64行则是直接将汇编翻成了C++语言，因为C++支持位操作，所以汇编中的与或非以及移位运算都可以直接用C++来表示，而jmp，test等跳转则翻成if语句。
+\par
+因为最后最后的校验码是一个32bit数据，正好为4个字节，所以在代码的67-72 行，通过移位以及与运算把每半个字节提出来，填充到数据包的末端当中去。73 行则进行数据的发送。
+\section{测试结果以及总结}
+\begin{figure}[htbp!]
+ \begin{center}
+ \includegraphics[width=0.7\textwidth]{./Fig/ipc}
+ \caption{程序运行界面}\label{ipc}
+\end{center}
+\end{figure}
+最终程序界面见图(\ref{ipc})，可以看到在校园网连接成功之后，可以正确返回余额，并顺利上网。经过验证，该出校控制器可以做到Android, OS X,Windows,Linux全平台可用，也说明了QT在跨平台开发方面有着巨大的优势。
+\par
+同时在python上的实现也可以顺利运行，见图(\ref{pycli})。
+\begin{figure}[htbp!]
+ \begin{center}
+ \includegraphics[width=0.7\textwidth]{./Fig/cli}
+ \caption{Python版运行结果}\label{pycli}
+\end{center}
+\end{figure}
+学校没有出ipad上的控制器，导致即使接入无线网也不能上网局面，但是国外有人做出来iPad上的Python解释器，所以Python也可以在ios系统上正常接入网络，如图(\ref{ipad})所示，但是由于ios不支持程序的后台运行，所以心跳包的发送受到影响，但是可以在接入后四五分钟内正常上网。
+\begin{figure}[htbp!]
+ \begin{center}
+ \includegraphics[width=0.9\textwidth]{./Fig/ipad}
+ \caption{ipad上Python版运行结果}\label{ipad}
+\end{center}
+\end{figure}
+\section{总结}
+原本做这个项目的最初目的只是为了能够在自己的Macbook上能够运行学校的出校控制器，但是
+并没有官方资料的可以提供，所以只能根据桂林电子科技大学相关同学的工作成果上进行，而自己
+个人不单单用Windows，也会由于一些需要使用Linux和OS X系统，所以一个能够全平台运行的出校
+控制器也是必要的。
+\par
+通过这一次实践，我又温习了汇编语言，并且亲自进行了一次反向工程的尝试，在调试代码的各种的失败与挫折中锻炼了自己，使得自己获得了很大的提高。
+\newpage
+\section*{附录}
+\renewcommand\thesubsection{附录~\Alph{subsection}}
+\addcontentsline{toc}{section}{附录}
+\zihao{5}
+\renewcommand{\lstlistingname}{代码清单}
+\renewcommand{\lstlistlistingname}{代码清单}
+% 正确的设置
+% listings 源代码显示宏包
+%\subsection{C++拉格朗日插值完整代码}
+%\label{prog1}
+%\lstinputlisting[language=C++]{./Code/lagrange-cli/lag.cpp}
+%\subsection{引入噪声之后的梯度法拟合程序}
+%\label{fitnoise}
+%\lstinputlisting[language={C++},caption= 引入噪声之后的梯度法拟合程序] {./Code/fit-grad2/main.cpp}
+%\subsection{引入噪声之后的Lingo拟合程序}
+%\label{fitnoiselingo}
+\subsection{密文摘要中参数的计算}
+\label{ckey}
+{\zihao{-5}
+\begin{lstlisting}[language=Python]
+#coding:utf-8
+import hashlib
+import os
+stq=['1','2','3','4','5','6','7','8','9','0']
+for i1 in stq:
+ for i2 in stq:
+  for i3 in stq:
+   for i4 in stq:
+      src = i1+i2+i3+i4+'042690'
+      md51=hashlib.md5(src).hexdigest().upper()
+      md52=md51[0:5]+'2014010970'
+      md53=hashlib.md5(md52).hexdigest().upper()
+      if md53[0:30]=='A6C81C0BB197CBA53EDCCBD122D85A':
+        print(8284-int(i1+i2+i3+i4))
+\end{lstlisting}}
+\subsection{密文摘要计算部分反汇编}
+\label{decomp}
+\lstdefinelanguage
+   [att]{Assembler}     % add a "x64" dialect of Assembler
+   [Motorola68k]{Assembler} % based on the "x86masm" dialect
+   % with these extra keywords:
+   {morekeywords={\%eax,\%ebp,mov,movw,movl,movb}}
+{\zihao{-5}
+\begin{lstlisting}[language={[att]Assembler}]
+ 8049379:	8d 45 f8             	lea    -0x8(%ebp),%eax
+ 804937c:	03 85 bc ea ff ff    	add    -0x1544(%ebp),%eax
+ 8049382:	03 85 b8 ea ff ff    	add    -0x1548(%ebp),%eax
+ 8049388:	03 85 b4 ea ff ff    	add    -0x154c(%ebp),%eax
+ 804938e:	2d 19 09 00 00       	sub    $0x919,%eax
+ 8049393:	8b 00                	mov    (%eax),%eax
+ 8049395:	2d 10 0d 00 00       	sub    $0xd10,%eax
+ 804939a:	a3 ec c9 04 08       	mov    %eax,0x804c9ec
+ 804939f:	66 c7 85 c8 e9 ff ff 	movw   $0x2382,-0x1638(%ebp)
+ 80493a6:	82 23
+ 80493a8:	c6 85 ca e9 ff ff 21 	movb   $0x21,-0x1636(%ebp)
+ 80493af:	c7 85 cc e9 ff ff 00 	movl   $0x0,-0x1634(%ebp)\end{lstlisting}}
+\label{deassemble}
+\subsection{Python版本源码}
+\lstinputlisting[language={Python},caption= IP Client 的Python版本源码] {./Code/ipclient.py}
+%----------------参考文献结束---------------
+%\newpage
+%%------------------------------附录页-----------------------------
+%%------------------------------------------------
+%\renewcommand{\listfigurename}{插图索引}
+%\renewcommand{\listtablename}{表格索引}
+%\addcontentsline{toc}{section}{插图索引}
+%\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+%\addtocontents{lof}{\protect\noaddvspace}
+%\listoffigures
+%\newpage
+%\addcontentsline{toc}{section}{表格索引}
+%\listoftables
+%\newpage
+%\newpage
+
+%\renewcommand{\indexname}{名词索引}
+%\addcontentsline{toc}{section}{名词索引}
+%\printindex
+
+\end{document}
+
+
