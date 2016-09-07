@@ -103,3 +103,9 @@
 1、增加桂电路由器拨号工具Python版本 /macopen_guet/macopen.py
 
 2、增加桂电路由器拨号工具Windows二进制版本 /macopen_guet/macopen_guet_win32.exe(7z) 
+
+--------2016.9.7-----------
+
+1、修正了原理文档中的书写错误
+
+2、上传原理文档的Latex源码
