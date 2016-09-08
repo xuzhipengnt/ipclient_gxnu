@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8 ##
+################This is MAC OPEN TOOLS###################
+################Only for GUET###########################
 import socket,numpy
 server='172.16.1.1'  #GUET 172.16.1.1  GXNU 202.193.160.123
 addr=(server,20015)
