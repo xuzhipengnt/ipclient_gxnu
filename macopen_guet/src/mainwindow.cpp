@@ -28,7 +28,6 @@ MainWindow::MainWindow(QWidget *parent) :
    connect(timeout2,SIGNAL(timeout()),this,SLOT(feedbacktimeout()));//Receive feedback packet timeout
       connect(flagtime,SIGNAL(timeout()),this,SLOT(showflag()));//Receive feedback packet timeout
     Getlocalip();//Get local ip address
-
     setFixedSize(250,310); // 禁止改变窗口大小。
     QPixmap yflag(":/yflag.png");
  QPixmap gflag(":/gflag.png");
@@ -131,10 +130,10 @@ void MainWindow::Recvip()
             timeout1->stop(); //Stop timer
             ui->dial->setEnabled(1);//Enable dial button
             ui->label_4->setText("Welcome");
-            for (int i2=i+182;i2<500;i2++)
+            for (int i2=i+179;i2<500;i2++)
             {
                 if (data[i2]==0x01) break;
-                if (data[i2]!=0x00) localip.append(data[i2]);
+                if ((data[i2]<='9' && data[i2]>='0') || (data[i2]=='.')) localip.append(data[i2]);  //2016-09-08 ip address is '0'-'9' or '.'
             }
             break;
         }
