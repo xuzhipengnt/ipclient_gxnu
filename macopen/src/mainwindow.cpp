@@ -133,7 +133,7 @@ void MainWindow::Recvip()
             for (int i2=i+62;i2<500;i2++)
             {
                 if (data[i2]==0x01) break;
-                localip.append(data[i2]);
+                if ((data[i2]<='9' && data[i2]>='0') || (data[i2]=='.')) localip.append(data[i2]);
             }
             break;
         }
