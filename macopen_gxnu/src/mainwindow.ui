@@ -25,7 +25,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>10</y>
+      <y>0</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -46,7 +46,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>80</y>
+      <y>90</y>
       <width>191</width>
       <height>211</height>
      </rect>
@@ -205,7 +205,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>40</y>
+      <y>50</y>
       <width>211</width>
       <height>16</height>
      </rect>
@@ -218,7 +218,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>60</y>
+      <y>70</y>
       <width>211</width>
       <height>17</height>
      </rect>
@@ -238,6 +238,27 @@
     </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>20</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Agency FB</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>For 广西师大</string>
     </property>
    </widget>
   </widget>
