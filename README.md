@@ -130,3 +130,5 @@
 2、修复了师大mac开放工具ip地址可能解析不正确的错误，并加上标示，以防与桂电混淆
 
 3、修改了部分目录结构 \macopen-->\macoepn_gxnu
+
+4、增加了桂电路由器拨号工具的OS X版本 /macopen_guet/macopen_guet_osx.zip
