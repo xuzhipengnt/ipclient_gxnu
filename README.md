@@ -79,7 +79,7 @@
 
 --------2016.8.11-----------
 
-1、先建一个库，整理一下，有空放一些架设vpn的细节，可以联系邮箱xzpmail@gmail.com（我不喜欢扣扣聊天）
+1、建一个库，放好第一块砖
 
 2、上传./ipclient_python/ipclient.py 校园网出校控制器Python实现，童鞋么可以在Linux,OS X,Windows下上网了，开源的用了更放心～～
 
