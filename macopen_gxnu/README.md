@@ -21,3 +21,11 @@ Step2:
 chmod +x macopen.py
 
 ./macopen.py
+
+## MD5校验和
+
+/macopen_gxnu/macopen_gxnu_win32.7z ...... f8563fca042c823c9c1ca35615619c70
+
+/macopen_gxnu/macopen_gxnu_win32.exe ...... 1dd7b2bc0cbf4bbbcf7517e292e32c24
+
+/macopen_gxnu/macopen_gxnu_osx.zip ...... c0b22189f8a0103386362f3f4ef27ced
