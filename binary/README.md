@@ -17,15 +17,18 @@
 /binary/ipclient_gui_win32_binary.exe........Windows下面有界面的出校控制器（直接使用,Windows用户推荐）
 
 
-路由器辅助拨号工具如下，只需要输入路由器的Mac地址和运营商，路由器就可以正常上网
+## MD5校验和
 
-路由器辅助拨号工具只需要在联入校园网的电脑上（宿舍，实验室，教室均可），输入路由器的mac地址，选定运营商，就可以正常配置拨号了。开启循环模式可以一直预拨号，这样路由器即使断线也能自动恢复，建议在实验室常开的电脑上运行。
+/binary/ipclient_cli_x64_linux ...... 41c8355b562e2b6c51dc291ddcc7c52b
 
-/binary/macopen_gui_osx.zip.......For Mac
+/binary/ipclient_cli_x64_osx ...... 53ae4e497ba929617a229e02430bc92a
 
-/binary/macopen_gui_win32_73.7z........For Windows
+/binary/ipclient_cli_linux ...... e6875f7b5602cd211d1c681abf851618
 
-/binary/macopen_gui_win32_binary.exe.......For Windows 单独Exe
+/binary/ipclient_gui_osx.zip ...... 595c79e2fb1a3d82867e358be8651c88
+
+/binary/ipclient_gui_win32_7z.7z ...... 047f04da46cebff69f36ceb07a779bc8
+
 
 
 
