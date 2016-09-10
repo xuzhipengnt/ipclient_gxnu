@@ -132,3 +132,39 @@
 3、修改了部分目录结构 \macopen-->\macoepn_gxnu
 
 4、增加了桂电路由器拨号工具的OS X版本 /macopen_guet/macopen_guet_osx.zip
+
+--------2016.9.10-----------
+
+1、上传EXE打包工具enigma virtual box(这是免费软件，官网http://enigmaprotector.com/en/aboutvb.html)
+
+2、用最新的enigma virtual box重新打包并上传/macopen_guet/macopen_guet_win32.exe,/macopen_gxnu/macopen_gxnu_win32.exe,/binary/ipclient_gui_win32_binary.exe
+
+3、有童鞋反映360报毒的问题，我不用360，但是我这里avast,卡巴斯基均正常。若不放心可下载7z压缩包解压后运行。
+
+4、增加md5校验码，确保程序下载过程不受篡改
+
+##二进制包的MD5校验和  MD5SUM
+
+/binary/ipclient_cli_x64_linux ...... 41c8355b562e2b6c51dc291ddcc7c52b
+
+/binary/ipclient_cli_x64_osx ...... 53ae4e497ba929617a229e02430bc92a
+
+/binary/ipclient_cli_linux ...... e6875f7b5602cd211d1c681abf851618
+
+/binary/ipclient_gui_osx.zip ...... 595c79e2fb1a3d82867e358be8651c88
+
+/binary/ipclient_gui_win32_7z.7z ...... 047f04da46cebff69f36ceb07a779bc8
+
+/binary/ipclient_gui_win32_binary.exe ...... 11ca323a68f5476fa700d72a4bcdfe12
+
+/macopen_gxnu/macopen_gxnu_win32.7z ...... f8563fca042c823c9c1ca35615619c70
+
+/macopen_gxnu/macopen_gxnu_win32.exe ...... 1dd7b2bc0cbf4bbbcf7517e292e32c24
+
+/macopen_gxnu/macopen_gxnu_osx.zip ...... c0b22189f8a0103386362f3f4ef27ced
+
+/macopen_guet/macopen_guet_win32.7z ...... f6aeb038421a6ffb91372728aba452a8
+
+/macopen_guet/macopen_guet_win32.exe ..... 111c74de9f9f0616b3969bdf2f997d05
+
+/macopen_guet/macopen_guet_osx.zip ...... 3b9b538a604ad4a20ad2c1893759b91a
