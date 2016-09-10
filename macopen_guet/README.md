@@ -26,6 +26,14 @@ chmod +x macopen.py
 
 ./macopen.py
 
+## MD5校验和
+
+/macopen_guet/macopen_guet_win32.7z ...... f6aeb038421a6ffb91372728aba452a8
+
+/macopen_guet/macopen_guet_win32.exe ..... 111c74de9f9f0616b3969bdf2f997d05
+
+/macopen_guet/macopen_guet_osx.zip ...... 3b9b538a604ad4a20ad2c1893759b91a
+
 
 
 
