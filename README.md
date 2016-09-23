@@ -175,7 +175,9 @@
 
 ##版权 Copyright
 
-(1)以上软件以及相应文档使用GNU General Public Licence v3 (以下简称GPL) 发布其源代码和二进制代码，任何人都可以在不违反GPL的情况下获取，修改和重新发布代码。但是应该保留原作者和版权声明。声明原文：http://www.gnu.org/copyleft/gpl.html（中文供参考：http://www.thebigfly.com/gnu/gpl/)
+(1)以上软件以及相应文档使用GNU General Public Licence v3 (以下简称GPL) 发布其源代码和二进制代码，任何人都可以在不违反GPL的情况下获取，修改和重新发布代码。但是应该保留原作者和版权声明。http://www.gnu.org/copyleft/gpl.html
+
+（中文参考：http://www.thebigfly.com/gnu/gpl/)
 
 (2)以上软件中涉及的协议归广西师范大学、桂林电子科技大学网络中心所有。
 
