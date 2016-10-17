@@ -29,7 +29,7 @@ def send_handshake(mac,ip,isp):
   localInfo[i+30]=ipaddress[i]
  print(nInfo)
  for i in range(0,nmac):
-  localInfo[i+34]=mac[i]
+  localInfo[i+34]=ord(mac[i])
   localInfo[54]=isp
 #----------------
  ESI=int(0)
@@ -65,7 +65,7 @@ def get_local_ip(ifname):
 
 if __name__=="__main__":
     mac="40:61:86:87:9F:F1"
-    ip="172.16.1.1" ##!!!!ip is local machine's ip address but not router's ip
+    ip="172.16.1.22" ##!!!!ip is local machine's ip address but not router's ip
     isp=0x01
     ###isp  0x01(China Unicom)  0x02(China Telecom)  0x03(China Mobile) ###
     send_handshake(mac,ip,isp)
