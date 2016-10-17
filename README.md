@@ -149,9 +149,9 @@
 
 --------2016.10.17-----------
 
-1、修正\macopen_gxnu\macopen.py在Python3下的报错（加入了ASCII码强制类型转换）
+1、修正\macopen_gxnu\macopen.py在Python3下的类型转换问题，修复了小Bug
 
-2、修正\macopen_guet\macopen.py在Python3下的报错（加入了ASCII码强制类型转换）
+2、修正\macopen_guet\macopen.py在Python3下的类型转换问题，修复了小Bug
 
 3、在\macopen_guet \macopen_gxnu的README中增加安装numpy的建议
 
