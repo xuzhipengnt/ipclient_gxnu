@@ -147,6 +147,14 @@
 
 1、增加GPL V3声明
 
+--------2016.10.17-----------
+
+1、修正\macopen_gxnu\macopen.py在Python3下的报错
+
+2、修正\macopen_guet\macopen.py在Python3下的报错
+
+3、在\macopen_guet \macopen_gxnu的README中增加安装numpy的建议
+
 ##二进制包的MD5校验和  MD5SUM
 
 /binary/ipclient_cli_x64_linux ...... 41c8355b562e2b6c51dc291ddcc7c52b
