@@ -30,7 +30,7 @@ def send_handshake(mac,ip,isp):
  print(nInfo)
  for i in range(0,nmac):
   localInfo[i+34]=ord(mac[i])
-  localInfo[54]=isp
+ localInfo[54]=isp
 #----------------
  ESI=int(0)
  EBX=int(0)
