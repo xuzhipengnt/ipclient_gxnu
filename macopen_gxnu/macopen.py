@@ -1,10 +1,16 @@
 #!/usr/bin/env python
 # coding=utf-8 ##
-################This is MAC OPEN TOOLS###################
+################This is MAC OPEN TOOLS  Version 1.0###################
 ################Only for GXNU###########################
-import socket,numpy
+import socket
 server='202.193.160.123'
 addr=(server,20015)
+def int_overflow(val):
+    maxint = 2147483647
+    if not -maxint-1 <= val <= maxint:
+        val = (val + (maxint + 1)) % (2 * (maxint + 1)) - maxint - 1
+    return val
+
 def send_handshake(mac,ip,isp):
  localInfo=bytearray([0x00,0x00,0x00,0x00,0x00,0x00,
                          0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
@@ -39,7 +45,7 @@ def send_handshake(mac,ip,isp):
  ECX=int(ispKey)
  for i in range(0,nInfo-4):
     ESI=ECX
-    ESI=numpy.int32(ECX<<5)
+    ESI=int_overflow(ECX<<5)
     if (ECX>0):
       EBX=ECX
       EBX=ECX>>2
@@ -48,7 +54,7 @@ def send_handshake(mac,ip,isp):
       EBX=ECX>>2
       EBX=EBX|(0xC0000000)
     ESI=ESI+int(localInfo[i])
-    EBX=numpy.int32(EBX+ESI)
+    EBX=int_overflow(EBX+ESI)
     ECX=ECX^EBX
  ECX=ECX&(0x7FFFFFFF)
 
