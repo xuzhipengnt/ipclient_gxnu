@@ -15,6 +15,8 @@
 
 企鹅号648049***的童鞋跟我反映，\macopen_gxnu\macopen.py在树莓派下的numpy报错，这里讲一下历史，刚开始做这个工具的时候，发现python对int的溢出将自动转换为long型，于是用c写了个动态链接库，将+-<<>>等基础操作封装起来，然后python去调用这个库，不同操作系统动态链接库是需要重新编译的（见\misc\macopen_old），因此不适合大规模使用，所以后来引入了numpy来处理这个问题，而numpy貌似在树莓派下会出错，所以现在参考别人的资料，不再采用numpy库。最后感谢童鞋提出的bug,在此表示感谢！
 
+目前大多数高校的的互联网都采用NAT,即通过一个公共的ip地址出校，所以外网的ip地址和内网的ip地址会出现不一致的情形，如果再接个路由器，就更复杂了，所以校园网中有效的ip地址不能依赖网卡的地址，而需要依赖校园网上服务器获得（官方出校控制器、有界面版本的macopen工具都是这么做的)，而macopen的python版本中，如果清楚自己校园网上的ip（一般172或202打头）可以使用/macopen_gxnu/macopen.py，否则建议使用/macopen_gxnu/macopen_scapy.py（需要root权限）
+
 还有会有人问为什么要开源呢？
 
 这些协议只是学校的私有的协议，也就桂林这一带的高校才用，逆向了也没什么商业利益，纯粹兴趣和个人需要，所以就开源啦，就是辣么任性，哈哈哈～～
@@ -54,6 +56,8 @@
 
 /macopen_gxnu/macopen.py......路由器辅助拨号工具Python版本
 
+/macopen_gxnu/macopen_scapy.py......路由器辅助拨号工具Python版本(免输ip地址版本)
+
 文档和源码如下
 
 /doc/原理文档.pdf.......学校出校控制器，宿舍宽带拨号的秘密都在里面啦
@@ -72,6 +76,8 @@
 /macopen_guet/src.......路由器辅助拨号工具qt源码(桂林电子科大)
 
 /macopen_guet/macopen.py......路由器辅助拨号工具Python版本
+
+/macopen_guet/macopen_scapy.py......路由器辅助拨号工具Python版本(免输ip地址版本)
 
 /macopen_guet/macopen_guet_win32.exe......路由器辅助拨号工具的win32二进制版本
 
@@ -131,7 +137,7 @@
 
 2、修复了师大mac开放工具ip地址可能解析不正确的错误，并加上标示，以防与桂电混淆
 
-3、修改了部分目录结构 \macopen-->\macoepn_gxnu
+3、修改了部分目录结构 /macopen-->/macoepn_gxnu
 
 4、增加了桂电路由器拨号工具的OS X版本 /macopen_guet/macopen_guet_osx.zip
 
@@ -151,17 +157,23 @@
 
 --------2016.10.17-----------
 
-1、修正\macopen_gxnu\macopen.py在Python3下的类型转换问题，修复了小Bug
+1、修正/macopen_gxnu/macopen.py在Python3下的类型转换问题，修复了小Bug
 
-2、修正\macopen_guet\macopen.py在Python3下的类型转换问题，修复了小Bug
+2、修正/macopen_guet/macopen.py在Python3下的类型转换问题，修复了小Bug
 
-3、在\macopen_guet \macopen_gxnu的README中增加安装numpy的建议
+3、在/macopen_guet/macopen_gxnu的README中增加安装numpy的建议
 
 --------2016.10.18-----------
 
-1、去除\macopen_gxnu\macopen.py对numpy库的依赖
+1、去除/macopen_gxnu/macopen.py对numpy库的依赖
 
-2、去除\macopen_guet\macopen.py对numpy库的依赖
+2、去除/macopen_guet/macopen.py对numpy库的依赖
+
+3、增加/macopen_gxnu/macopen_scapy.py免输ip地址版本
+
+4、增加/macopen_guet/macopen_scapy.py免输ip地址版本
+
+5、增加了初期含动态链接库macopen工具，解决python中int溢出转long的问题，见/misc/macopen_old
 
 ##二进制包的MD5校验和  MD5SUM
 
