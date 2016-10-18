@@ -13,6 +13,8 @@
 
 无论是出校控制器还是出校控制还是写出了QT和Python的两个版本，QT的好处是界面好看，Python的好处是代码短，两个都能跨所有平台，Python用在服务器上更方便一点。
 
+企鹅号648049***的童鞋跟我反映，\macopen_gxnu\macopen.py在树莓派下的numpy报错，这里讲一下历史，刚开始做这个工具的时候，发现python对int的溢出将自动转换为long型，于是用c写了个动态链接库，将+-<<>>等基础操作封装起来，然后python去调用这个库，不同操作系统动态链接库是需要重新编译的（见\misc\macopen_old），因此不适合大规模使用，所以后来引入了numpy来处理这个问题，而numpy貌似在树莓派下会出错，所以现在参考别人的资料，不再采用numpy库。最后感谢童鞋提出的bug,在此表示感谢！
+
 还有会有人问为什么要开源呢？
 
 这些协议只是学校的私有的协议，也就桂林这一带的高校才用，逆向了也没什么商业利益，纯粹兴趣和个人需要，所以就开源啦，就是辣么任性，哈哈哈～～
@@ -154,6 +156,12 @@
 2、修正\macopen_guet\macopen.py在Python3下的类型转换问题，修复了小Bug
 
 3、在\macopen_guet \macopen_gxnu的README中增加安装numpy的建议
+
+--------2016.10.18-----------
+
+1、去除\macopen_gxnu\macopen.py对numpy库的依赖
+
+2、去除\macopen_guet\macopen.py对numpy库的依赖
 
 ##二进制包的MD5校验和  MD5SUM
 
