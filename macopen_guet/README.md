@@ -26,6 +26,22 @@ chmod +x macopen.py
 
 ./macopen.py
 
+##scapy特殊Python版本(macopen_scapy.py)
+
+一般python不带scapy模块，因此需要安装scapy
+
+ubuntu(debian)下
+
+sudo apt-get install scapy python3-pip
+
+pip3 install scapy
+
+修改macopen_scapy.py中的mac和isp变量（同上）
+
+chmod +x macopen_scapy.py
+
+sudo ./macopen_scapy.py
+
 ## MD5校验和
 
 /macopen_guet/macopen_guet_win32.7z ...... f6aeb038421a6ffb91372728aba452a8
