@@ -10,19 +10,15 @@
 
 ##Python版本
 
-路由器预先拨号工具 macopen.py
-
-需要安装numpy包，ubuntu(debian)下执行sudo apt-get install python-numpy python3-numpy
-
-如果你清楚Python版本的话，只需要安装相应版本的numpy即可，不清楚的话建议全部安装
-
 Step1:
 
-修改macopen.py的mac和ip两个变量,mac为需要上网的设备的mac地址，ip为当前机器的ip地址
+修改macopen.py的mac和ip和isp三个变量,mac为需要上网的设备的mac地址，ip为当前机器的ip地址,isp为运营商
 
 mac="41:61:86:87:9F:F1"
 
-ip="172.16.54.205" 
+ip="172.16.54.205"
+
+isp=0x01 (0x01 联通 0x02 电信 0x03 移动)
 
 Step2:
 
