@@ -1,4 +1,5 @@
-#include <stdio.h> 
+//gcc bite.c -fPIC -shared -o bite.so
+#include <stdio.h>
 int left(int num,int bi)
 {
   return (num<<bi);
