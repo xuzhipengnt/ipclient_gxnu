@@ -2,7 +2,7 @@
 import socket,time,fcntl, struct
 import hashlib,os,numpy
 import ctypes
-bite = ctypes.CDLL('/home/pi/isp/bite.so')
+bite = ctypes.CDLL('bite.so')
 server='202.193.160.123'
 addr=(server,20015)
 def send_handshake():
