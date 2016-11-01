@@ -175,6 +175,10 @@
 
 5、增加了初期含动态链接库macopen工具，解决python中int溢出转long的问题，见/misc/macopen_old
 
+--------2016.11.1-----------
+
+1、感谢桂电ykwd@sina.com同学提出的建议，将/macopen_****/macopen.py握手过程改为两次提高握手成功率
+
 ##二进制包的MD5校验和  MD5SUM
 
 /binary/ipclient_cli_x64_linux ...... 41c8355b562e2b6c51dc291ddcc7c52b
