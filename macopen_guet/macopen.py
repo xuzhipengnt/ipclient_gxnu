@@ -67,8 +67,8 @@ def send_handshake(account,mac,ip,isp):
   keypart=((ECX>>(i*8))&0x000000FF)
   localInfo[nInfo-(4-i)]=keypart
  s1.send(localInfo)
- for i in range(0,nInfo):
-  print("%x"%localInfo[i])
+     #for i in range(0,nInfo):
+#print("%x"%localInfo[i])
  
 def get_local_ip(ifname):
  s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -84,5 +84,6 @@ if __name__=="__main__":
     ###isp  0x01(China Unicom)  0x02(China Telecom)  0x03(China Mobile) ###
     send_handshake(account,mac,ip,isp)
     send_handshake(account,mac,ip,isp)
+    print("Finished...")
     exit
 
