@@ -175,15 +175,6 @@
 
 5、增加了初期含动态链接库macopen工具，解决python中int溢出转long的问题，见/misc/macopen_old
 
----------2016.11.1-----------
-
-1、桂电某同学(ykw*@sina.com)指出桂电mac开放工具的一些Bug，并提交了修改后的代码（见2、3），在此表示感谢！！
-
-2、/macopen_guet/macopen.py增加变量account，桂电需要通过account指定上网账号(师大可以随意设定，不用修改)
-
-3、/macopen_guet/macopen.py握手过程由1次改为2次，增加成功概率
-
-
 ##二进制包的MD5校验和  MD5SUM
 
 /binary/ipclient_cli_x64_linux ...... 41c8355b562e2b6c51dc291ddcc7c52b
