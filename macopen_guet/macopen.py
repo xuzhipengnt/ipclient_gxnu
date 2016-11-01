@@ -12,29 +12,33 @@ def int_overflow(val):
         val = (val + (maxint + 1)) % (2 * (maxint + 1)) - maxint - 1
     return val
 
-def send_handshake(mac,ip,isp):
- localInfo=bytearray([0x00,0x00,0x00,0x00,0x00,0x00,
+def send_handshake(account,mac,ip,isp):
+ localInfo=bytearray([0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
                          0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
                          0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-                         0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-                         0xac,0x10,0x40,0x12,0x30,0x30,0x3a,0x31,
-                         0x46,0x3a,0x31,0x36,0x3a,0x32,0x32,0x3a,
-                         0x42,0x38,0x3a,0x45,0x43,0x00,0x00,0x00,
-                         0x03,0x00,0x00,0x00,0x00,0x00])
+                         0x00,0x00,0x00,0x00,0x00,0x00,0x0a,0x14,
+                         0x29,0x1e,0x44,0x38,0x3a,0x43,0x42,0x3a,
+                         0x38,0x41,0x3a,0x38,0x34,0x3a,0x44,0x46,
+                         0x3a,0x31,0x39,0x00,0x00,0x00,0x01,0x00,
+                         0x00,0x00,0x00,0x00])
  s1=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
  s1.connect(addr)
  ispKey=0x4e67c6a7
  localInfo[0]=0x61
  nmac=len(mac)
  nInfo=len(localInfo)
+ nAccount=len(account)
+ for i in range(0,nAccount):
+  localInfo[i]=ord(account[i])
+  
  ipaddress=[0,0,0,0]
  fff=ip.split('.')
  for k in range(0,4):
    ipaddress[k]=int(fff[k])
- print(ipaddress)
+ #print(ipaddress)
  for i in range(0,4):
   localInfo[i+30]=ipaddress[i]
- print(nInfo)
+ #print(nInfo)
  for i in range(0,nmac):
   localInfo[i+34]=ord(mac[i])
  localInfo[54]=isp
@@ -63,7 +67,9 @@ def send_handshake(mac,ip,isp):
   keypart=((ECX>>(i*8))&0x000000FF)
   localInfo[nInfo-(4-i)]=keypart
  s1.send(localInfo)
-
+ for i in range(0,nInfo):
+  print("%x"%localInfo[i])
+ 
 def get_local_ip(ifname):
  s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
  inet = fcntl.ioctl(s.fileno(), 0x8915, struct.pack('256s', ifname[:15]))
@@ -71,10 +77,12 @@ def get_local_ip(ifname):
  return ret
 
 if __name__=="__main__":
-    mac="40:61:86:87:9F:F1"
-    ip="172.16.1.22" ##!!!!ip is local machine's ip address but not router's ip
+    account="11" ##User account
+    mac="11:11:11:11:11:11"  ##Mac Address
+    ip="11.11.11.11" ##!!!!ip is local machine's ip address but not router's ip
     isp=0x01
     ###isp  0x01(China Unicom)  0x02(China Telecom)  0x03(China Mobile) ###
-    send_handshake(mac,ip,isp)
+    send_handshake(account,mac,ip,isp)
+    send_handshake(account,mac,ip,isp)
     exit
 
