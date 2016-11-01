@@ -75,5 +75,6 @@ if __name__=="__main__":
     isp=0x01
     ###isp  0x01(China Unicom)  0x02(China Telecom)  0x03(China Mobile) ###
     send_handshake(mac,ip,isp)
+    send_handshake(mac,ip,isp)
     exit
 
