@@ -169,9 +169,9 @@
 
 2、去除/macopen_guet/macopen.py对numpy库的依赖
 
-3、增加/macopen_gxnu/macopen_scapy.py免输ip地址版本
+3、增加/macopen_gxnu/macopen_scapy.py免输入ip地址版本
 
-4、增加/macopen_guet/macopen_scapy.py免输ip地址版本
+4、增加/macopen_guet/macopen_scapy.py免输入ip地址版本
 
 5、增加了初期含动态链接库macopen工具，解决python中int溢出转long的问题，见/misc/macopen_old
 
