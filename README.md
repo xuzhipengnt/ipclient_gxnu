@@ -179,6 +179,12 @@
 
 1、感谢桂电ykwd@sina.com同学提出的建议，将/macopen_****/macopen.py握手过程改为两次提高握手成功率
 
+--------2016.11.12-----------
+
+1、最近有童鞋反映希望能编译桂电出校控制器，增加／ipclient_qt_guet，只是改了一下服务器的ip地址，不知道有没有问题
+
+2、/ipclient_qt/src/mainwindow.cpp的179将char类型改成unsigned char，否则部分编译器报错
+
 ##二进制包的MD5校验和  MD5SUM
 
 /binary/ipclient_cli_x64_linux ...... 41c8355b562e2b6c51dc291ddcc7c52b
