@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     preDATA.append("THIS IS A TEST MESSAGE TO GET LOCAL IP ADDRESS, PLEASE DO NOT RESPOND!");
     usocket=new QUdpSocket(this);
     ispUdp=new QUdpSocket(this);
-    server=QHostAddress("202.193.160.123");
+    server=QHostAddress("172.16.1.1");
     usocket->connectToHost(server,5300);
     ispUdp->connectToHost(server,20015);
     usocket->write(preDATA);

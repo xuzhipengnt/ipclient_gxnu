@@ -2,3 +2,5 @@
 *.user
 
 *.2020ee8
+
+.DS_Store
