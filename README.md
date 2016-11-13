@@ -1,4 +1,4 @@
-# 广西师大的出校控制工具开源实现，另更新桂林电子科大的路由器辅助拨号工具（多运营商出校控制工具）
+# 广西师大的出校控制工具开源实现（包括桂林电子科大）
 
 ## 前言 Preface
 
@@ -71,7 +71,9 @@
 /ipclient_qt.......出校控制器界面的qt源码
 
 
-## 新增桂林电子科大路由器辅助拨号工具  MAC OPEN TOOLS FOR GUET
+## 新增桂林电子科大出校控制器  MAC OPEN TOOLS FOR GUET
+
+/ipclient_qt_guet.......桂电版本出校控制器界面的qt源码
 
 /macopen_guet/src.......路由器辅助拨号工具qt源码(桂林电子科大)
 
@@ -185,6 +187,10 @@
 
 2、/ipclient_qt/src/mainwindow.cpp的179将char类型改成unsigned char，否则部分编译器报错
 
+--------2016.11.13-----------
+
+1、去掉桂电出校控制器的Beta版本，重新编译
+
 ##二进制包的MD5校验和  MD5SUM
 
 /binary/ipclient_cli_x64_linux ...... 41c8355b562e2b6c51dc291ddcc7c52b
@@ -198,6 +204,12 @@
 /binary/ipclient_gui_win32_7z.7z ...... 047f04da46cebff69f36ceb07a779bc8
 
 /binary/ipclient_gui_win32_binary.exe ...... 11ca323a68f5476fa700d72a4bcdfe12
+
+/binary/ipclient_gui_guet_win32_7z.7z ...... ad5971dc3ef5baf781dd4b3ae1d4060a
+
+/binary/ipclient_gui_guet_osx.zip ...... bb81485a0d058fe74a4d6fbcbf4f5bf9
+
+/binary/ipclient_gui_guet_win32_binary.exe ...... 522850ef0aada166b5dd67bbecbd461a
 
 /macopen_gxnu/macopen_gxnu_win32.7z ...... f8563fca042c823c9c1ca35615619c70
 
