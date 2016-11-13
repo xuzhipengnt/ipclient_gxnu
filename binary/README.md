@@ -16,6 +16,13 @@
 
 /binary/ipclient_gui_win32_binary.exe........Windows下面有界面的出校控制器（直接使用,Windows用户推荐）
 
+另：增加桂电版出校控制器
+
+/binary/ipclient_gui_guet_win32_7z.7z
+
+/binary/ipclient_gui_guet_osx.zip 
+
+/binary/ipclient_gui_guet_win32_binary.exe
 
 ## MD5校验和
 
@@ -28,6 +35,12 @@
 /binary/ipclient_gui_osx.zip ...... 595c79e2fb1a3d82867e358be8651c88
 
 /binary/ipclient_gui_win32_7z.7z ...... 047f04da46cebff69f36ceb07a779bc8
+
+/binary/ipclient_gui_guet_win32_7z.7z ...... ad5971dc3ef5baf781dd4b3ae1d4060a
+
+/binary/ipclient_gui_guet_osx.zip ...... bb81485a0d058fe74a4d6fbcbf4f5bf9
+
+/binary/ipclient_gui_guet_win32_binary.exe ...... 522850ef0aada166b5dd67bbecbd461aw
 
 
 
