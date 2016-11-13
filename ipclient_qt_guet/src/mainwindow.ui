@@ -35,7 +35,7 @@
      </font>
     </property>
     <property name="text">
-     <string>IP Client for GUET (Beta)</string>
+     <string>IP Client for GUET</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox">
