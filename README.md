@@ -191,6 +191,11 @@
 
 1、去掉桂电出校控制器的Beta版本，重新编译
 
+--------2016.11.22-----------
+
+1、有童鞋提议在macopen工具里加入保存设置功能，师大版本macopen_gxnu里面已经更新
+
+
 ##二进制包的MD5校验和  MD5SUM
 
 /binary/ipclient_cli_x64_linux ...... 41c8355b562e2b6c51dc291ddcc7c52b
@@ -211,11 +216,11 @@
 
 /binary/ipclient_gui_guet_win32_binary.exe ...... 522850ef0aada166b5dd67bbecbd461a
 
-/macopen_gxnu/macopen_gxnu_win32.7z ...... f8563fca042c823c9c1ca35615619c70
+/macopen_gxnu/macopen_gxnu_win32.7z ...... e131d19624b4cada0bc47ca48911311b
 
-/macopen_gxnu/macopen_gxnu_win32.exe ...... 1dd7b2bc0cbf4bbbcf7517e292e32c24
+/macopen_gxnu/macopen_gxnu_win32.exe ...... d3c1860d8fd88f846de77848fe50d457
 
-/macopen_gxnu/macopen_gxnu_osx.zip ...... c0b22189f8a0103386362f3f4ef27ced
+/macopen_gxnu/macopen_gxnu_osx.zip ...... 6f7e3b33cc8090ec597ce3dc5361af41
 
 /macopen_guet/macopen_guet_win32.7z ...... f6aeb038421a6ffb91372728aba452a8
 
