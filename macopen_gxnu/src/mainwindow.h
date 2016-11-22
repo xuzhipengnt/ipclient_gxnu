@@ -10,6 +10,7 @@
 #include <QTime>
 #include <QDebug>
 #include <QMessageBox>
+#include <QSettings>
 namespace Ui {
 class MainWindow;
 }
@@ -24,6 +25,7 @@ public:
     int loopmode;//Deinfe circlemode  --1 loop mode --0  single mode
     QString localip;//Local ip
     QString loopmac;
+    int looptime;
     QUdpSocket *ipsocket;  //ipsocket to get ipaddress
     QUdpSocket *ispudp;  //ispudp to send pre dial packet
     void Getlocalip();  //Get local ip from 202.193.160.123 because NAT will change source ip
@@ -32,6 +34,8 @@ public:
     QTimer *timeout2;  //Define receive feedback timeout
     QTimer *flagtime;  //Define flag timeout
      QTimer *loopclock;  //Define loop clock
+     void WriteSettings(QString mac);
+    void ReadSettings();
 //    QMessageBox *warning;
      int ispCon(int ispNum,QString myIP,QString myMac);
     ~MainWindow();

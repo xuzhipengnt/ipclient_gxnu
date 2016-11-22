@@ -31,11 +31,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     setFixedSize(250,310); // 禁止改变窗口大小。
     QPixmap yflag(":/yflag.png");
- QPixmap gflag(":/gflag.png");
- ui->sflag->setFixedSize(25,25);
+   QPixmap gflag(":/gflag.png");
+   ui->sflag->setFixedSize(25,25);
     ui->sflag->setPixmap(gflag);
     ui->sflag->setScaledContents(1);
-
+   ReadSettings();
 }
 
 MainWindow::~MainWindow()
@@ -176,10 +176,6 @@ void MainWindow::on_mobi_clicked()
 }
 
 
-
-
-
-
 void MainWindow::on_circ_clicked()
 {
     if (ui->circ->isChecked()==1)
@@ -205,7 +201,7 @@ void MainWindow::on_dial_clicked()
      disconnect(loopclock,SIGNAL(timeout()),this,SLOT(loopsend()));
   QRegExp regexpmac("([0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2})");
   QString macaddr;
-  int looptime=0;
+  looptime=0;
   macaddr=ui->mactext->text(); //Get mac address
   macaddr=macaddr.toUpper(); //Transform to UPPER
   bool macmatch=regexpmac.exactMatch(macaddr); //Judge the mac address is correct
@@ -218,6 +214,8 @@ void MainWindow::on_dial_clicked()
 
   if (macmatch) //Check MAC address
   {
+        looptime=ui->circtime->value();
+        WriteSettings(macaddr); //Writing option to file
         if (loopmode==0)
         { //single mode
           ispCon(ispn,localip,macaddr);
@@ -226,7 +224,7 @@ void MainWindow::on_dial_clicked()
         { //loop mode
            ispCon(ispn,localip,macaddr);
           loopmac=macaddr;
-          looptime=ui->circtime->value();
+
         //  disconnect(loopclock,SIGNAL(timeout()),this,SLOT(loopsend()));
           connect(loopclock,SIGNAL(timeout()),this,SLOT(loopsend()));
           loopclock->start(looptime*1000*60);
@@ -361,5 +359,90 @@ void MainWindow::showflag()
 }
 
 
+void MainWindow::WriteSettings(QString mac)  //
+{
+ //   QSettings settings("Software Inc", "Spreadsheet"); // windows在注册表中建立建 Software Inc -> Spreadsheet
+    QSettings settings(QSettings::IniFormat,QSettings::UserScope,"macopen"); // 当前目录的INI文件
+    settings.beginGroup("GXNU");
+    settings.setValue("MAC", mac);
+    settings.setValue("ISP", ispn);
+    settings.setValue("LOOP", loopmode);
+    settings.setValue("LOOPTIME", looptime);
+    settings.endGroup();
+}
+
+void  MainWindow::ReadSettings()
+{
+        QSettings settings(QSettings::IniFormat,QSettings::UserScope,"macopen");
+    settings.beginGroup("GXNU");
+    QString mac = settings.value("MAC").toString();
+    int loop= settings.value("LOOP").toInt();
+    int isp=settings.value("ISP").toInt();
+    int ltime=settings.value("LOOPTIME").toInt();
+    settings.endGroup();
+    if (ltime>=2)
+    {
+        looptime=ltime;
+        ui->circtime->setValue(looptime);
+    }
+    else
+    {
+        looptime=2;
+        ui->circtime->setValue(looptime);
+    }
+    if (mac=="")
+    {
+       ui->mactext->setText("FF:FF:FF:FF:FF:FF");
+    }
+    else
+    {
+    ui->mactext->setText(mac);
+    }
+    if (loop==0)
+    {
+        ui->circtime->setDisabled(1);
+        loopmode=loop;
+    }
+    else if(loop==1)
+    {
+        ui->circ->setChecked(1);
+        ui->circtime->setEnabled(1);
+        loopmode=loop;
+    }
+    else
+    {
+         ui->circ->setChecked(0);
+        ui->circtime->setDisabled(1);
+        loopmode=0;
+    }
+    if (isp==1)
+    {
+        ui->unicom->setChecked(1);
+        ui->tele->setChecked(0);
+        ui->mobi->setChecked(0);
+        ispn=isp; // Set ispn
+    }
+    else if(isp==2)
+    {
+        ui->unicom->setChecked(0);
+        ui->tele->setChecked(1);
+        ui->mobi->setChecked(0);
+        ispn=isp; // Set ispn
+    }
+    else if(isp==3)
+    {
+        ui->unicom->setChecked(0);
+        ui->tele->setChecked(0);
+        ui->mobi->setChecked(1);
+        ispn=isp; // Set ispn
+    }
+    else
+    {
+        ui->unicom->setChecked(0);
+        ui->tele->setChecked(0);
+        ui->mobi->setChecked(0);
+        ispn=10; // Set ispn
+    }
+}
 
 

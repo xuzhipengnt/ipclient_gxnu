@@ -42,8 +42,8 @@ sudo ./macopen_scapy.py
 
 ## MD5校验和
 
-/macopen_gxnu/macopen_gxnu_win32.7z ...... f8563fca042c823c9c1ca35615619c70
+/macopen_gxnu/macopen_gxnu_win32.7z ...... e131d19624b4cada0bc47ca48911311b
 
-/macopen_gxnu/macopen_gxnu_win32.exe ...... 1dd7b2bc0cbf4bbbcf7517e292e32c24
+/macopen_gxnu/macopen_gxnu_win32.exe ...... d3c1860d8fd88f846de77848fe50d457
 
-/macopen_gxnu/macopen_gxnu_osx.zip ...... c0b22189f8a0103386362f3f4ef27ced
+/macopen_gxnu/macopen_gxnu_osx.zip ...... 6f7e3b33cc8090ec597ce3dc5361af41
