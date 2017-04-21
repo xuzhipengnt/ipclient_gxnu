@@ -221,15 +221,15 @@ a/b>0时，很显然a/b都取下整，但是a/b<0时，取整是下整还是上�
 
 --------2017.4.21-----------
 
-1、桂电版localInfo[0]=49改成localInfo[0]=97
+1、修复了macopen shell版本的Bug
 
 2、应july-7th@qq.com童鞋友情提示，在MacOpen工具的Shell版本中增加了自动获取ip和mac地址的代码，只需要将eth0.2改成对应接口就行了，具体是哪个接口用ifconfig命令自己观察一下就好了。如果能够自己指定，将以下两行删除即可。
-   
+
 mac=$(ifconfig eth0.2 | grep " HWaddr" | awk -F" " '{print $5}')
 
 ipadd=$(ifconfig eth0.2 | grep "inet addr" | awk '{ print $2}'| awk -F: '{print $2}')
 
-##二进制包的MD5校验和  MD5SUM
+## 二进制包的MD5校验和  MD5SUM
 
 /binary/ipclient_cli_x64_linux ...... 41c8355b562e2b6c51dc291ddcc7c52b
 
@@ -261,7 +261,7 @@ ipadd=$(ifconfig eth0.2 | grep "inet addr" | awk '{ print $2}'| awk -F: '{print 
 
 /macopen_guet/macopen_guet_osx.zip ...... 3b9b538a604ad4a20ad2c1893759b91a
 
-##版权 Copyright
+## 版权声明 Copyright
 
 (1)以上软件以及相应文档使用GNU General Public Licence v3 (以下简称GPL) 发布其源代码和二进制代码，任何人都可以在不违反GPL的情况下获取，修改和重新发布代码。但是应该保留原作者和版权声明。http://www.gnu.org/copyleft/gpl.html
 
