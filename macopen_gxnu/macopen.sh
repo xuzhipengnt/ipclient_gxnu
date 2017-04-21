@@ -7,10 +7,16 @@ echo "******** Author:july-7th@qq.com********"
 server="202.193.160.123"
 echo "Server:" $server
 ##Mac Address(should upcase)## 
+##If you know your MAC address, you can set ip address manually##
 mac="FF:FF:FF:FF:FF:FF"
+##Or you can get MAC address from command 'ifconfig' automatically， but you must know interface##
+mac=$(ifconfig eth0.2 | grep " HWaddr" | awk -F" " '{print $5}')
 echo "MAC Address:" $mac
 ##Ip address##
-ipadd="172.16.22.1"
+##If you know your ip address, you can set ip address manually##
+ipadd="192.168.22.1"
+##Or you can get ip address from command 'ifconfig' automatically， but you must know interface##
+ipadd=$(ifconfig eth0.2 | grep "inet addr" | awk '{ print $2}'| awk -F: '{print $2}')
 echo "Local IP Address:" $ipadd
 ##Isp vendor China Unicom:01 China Telecom:02 China Mobile:03##
 isp=01 
@@ -63,7 +69,7 @@ ac 10 40 12 30 30 3a 31
 42 38 3a 45 43 00 00 00
 03 00 00 00 00 00)
 ispKey=1315423911  #1315423911 0x4e67c6a7
-localInfo[0]=49
+localInfo[0]=97
 nmac=${#mac}
 nInfo=${#localInfo[@]}
 ipaddress=(00 00 00 00)
