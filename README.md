@@ -217,7 +217,17 @@ a/b>0时，很显然a/b都取下整，但是a/b<0时，取整是下整还是上�
 
 1、感谢july-7th@qq.com童鞋的在MacOpen工具shell版本上的工作，可以在路由器上实现拨号
 
-2、加入MacOpen工具的Shell版本，分别为/macopen_gxnu/macopen.sh和/macopen_guet/macopen.sh，不再依赖Python，可以实现路由器上运行（虽然我没玩过，OpenWRT路由器系统运行shell是基本配置）
+2、加入MacOpen工具的Shell版本，分别为/macopen_gxnu/macopen.sh和/macopen_guet/macopen.sh，不再依赖Python，可以实现路由器上运行（可以咨询july-7th@qq.com童鞋）
+
+--------2017.4.21-----------
+
+1、桂电版localInfo[0]=49改成localInfo[0]=97
+
+2、应july-7th@qq.com童鞋友情提示，在MacOpen工具的Shell版本中增加了自动获取ip和mac地址的代码，只需要将eth0.2改成对应接口就行了，具体是哪个接口用ifconfig命令自己观察一下就好了。如果能够自己指定，将以下两行删除即可。
+   
+mac=$(ifconfig eth0.2 | grep " HWaddr" | awk -F" " '{print $5}')
+
+ipadd=$(ifconfig eth0.2 | grep "inet addr" | awk '{ print $2}'| awk -F: '{print $2}')
 
 ##二进制包的MD5校验和  MD5SUM
 
