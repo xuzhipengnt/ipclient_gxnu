@@ -2,7 +2,8 @@
 
 ## 前言 Preface
 
-即将毕业，研究生三年基本上属于“不务正业”的状态，这个项目也是这三年觉得做的最有意义的事情。
+~~即将毕业，研究生三年基本上属于“不务正业”的状态，这个项目也是这三年觉得做的最有意义的事情。~~
+已经毕业，离开师大（貌似目前师大的这一套系统已经替换），前往某校继续挣扎学业（某些拨号系统早就被更高段位大神逆向了底朝天，也就乐享其成了），但是仍然欢迎各位讨论，可能学业繁忙，无法一一及时回复，但是一定会回复。
 
 学校的校园网协议大概说个框架，具体还需要看/doc下的文档。就是客户端向服务器发送用户名，服务器返回一个salt，客户端再根据用户名、密码和salt计算出摘要返回给服务器，密码正确就修改ACL(也有可能是firewall)，让数据包通过，就能正常上网。为了防止不正常退出，还在计费引起损失，所以引入心跳包，长期收不到心跳包就自动断开。因为有心跳包的缘故，而且师大只要输错密码，机器就会掉线，与之前状态无关，因此断开的协议也就没有必要了（师大一个帐号即使在一台机器上断开了，也需要过个十分钟才能在另一台机器上用）
 
@@ -15,7 +16,8 @@
 -----2017.3.12加入-----
 
 因为我对shell并不怎么熟悉，所以没有考虑出Shell版本，july-7th@qq.com童鞋对macopen工具翻译成shell版本进行了实现，完成了绝大数的工作，再此表示感谢！但是却遇上最头疼的负数取模问题，后来翻遍了论坛，发现了
-http://www.unix.com/shell-programming-and-scripting/260045-newbie-question-modulo-operator-negative-operand-bug-feature.html这个帖子有人报Bug，但是没有解决。
+http://www.unix.com/shell-programming-and-scripting/260045-newbie-question-modulo-operator-negative-operand-bug-feature.html 
+这个帖子有人报Bug，但是没有解决。
 
 在Matlab/Python/C中，-7 % 5 = 3，而在Shell中，-7 % 5 = -2。
 
@@ -31,6 +33,31 @@ a/b>0时，很显然a/b都取下整，但是a/b<0时，取整是下整还是上�
 
 直接导致了取模的结果不一样，所以在Shell中需要自己写mod函数
 
+-----------------------
+
+-----2018.11.1加入-----
+大概两个月前收到Eric同学邮件，他提到了一个Get ip地址的方法，但是学业繁忙，忘了与各位分享
+
+我使用了socket创建一个假数据包的方法来获取IP地址，这个IP地址是连接网线时服务器DHCP分配的
+```
+def get_ip():
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(('8.8.8.8', 80))
+        ip = s.getsockname()[0]
+    finally:
+        s.close()
+    return ip
+```
+测试过LInux和Windows，均可使用（LInux下未连接网线时会抛出异常 OSError，可以通过以下代码处理，Windows下未连接网线也能获取到上次的地址）
+```
+try:
+        ip = get_ip()
+    except OSError as e:
+        print('无网络连接，请检查您的网线是否插好')
+        print('若确认网线插好了还是无法连接，你可以尝试手动填写ip地址')
+        exit(1)
+```
 -----------------------
 
 目前大多数高校的的互联网都采用NAT,即通过一个公共的ip地址出校，所以外网的ip地址和内网的ip地址会出现不一致的情形，如果再接个路由器，就更复杂了，所以校园网中有效的ip地址不能依赖网卡的地址，而需要依赖校园网上服务器获得（官方出校控制器、有界面版本的macopen工具都是这么做的)，而macopen的python版本中，如果清楚自己校园网上的ip（一般172或202打头）可以使用/macopen_gxnu/macopen.py，否则建议使用/macopen_gxnu/macopen_scapy.py（需要root权限）
@@ -233,6 +260,12 @@ a/b>0时，很显然a/b都取下整，但是a/b<0时，取整是下整还是上�
 mac=$(ifconfig eth0.2 | grep " HWaddr" | awk -F" " '{print $5}')
 
 ipadd=$(ifconfig eth0.2 | grep "inet addr" | awk '{ print $2}'| awk -F: '{print $2}')
+
+--------2018.11.1-----------
+
+1、贴出Get ip新方法
+
+2、更新部分说明
 
 ## 二进制包的MD5校验和  MD5SUM
 
